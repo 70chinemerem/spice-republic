@@ -37,7 +37,7 @@ const searchResults = document.getElementById('search-results');
 const menuItems = [
   { name: "Jollof Rice", category: "rice", price: 12.99, description: "A flavorful one-pot dish made with rice, tomatoes, and a blend of spices." },
   { name: "Egusi Soup", category: "soup", price: 15.20, description: "A rich and hearty soup made with melon seeds, vegetables, and meat or fish." },
-  { name: "Pepper Soup", category: "soup", price: 5.00, description: "A spicy and aromatic soup made with meat or fish, perfect for warming up." },
+  { name: "Pepper Soup", category: "soup", price: 9.99, description: "A spicy and aromatic soup made with meat or fish, perfect for warming up." },
   { name: "Banga Soup", category: "soup", price: 12.49, description: "A rich palm nut soup, often served with starch or fufu." },
   { name: "Suya", category: "meat", price: 8.99, description: "Spicy grilled meat skewers, seasoned with a special blend of spices." },
   { name: "Grilled Chicken", category: "meat", price: 10.99, description: "Tender chicken marinated in African spices and grilled to perfection." },
@@ -87,6 +87,7 @@ if (searchInput && searchResults) {
 }
 
 // 🛒 Shopping Cart Functionality
+// Cart data is stored in localStorage to persist between sessions
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 const cartBtn = document.getElementById('cart-btn');
@@ -160,7 +161,13 @@ function updateCartCount() {
   cartCount.classList.toggle('hidden', totalItems === 0);
 }
 
+/**
+ * Updates the cart display with current items and total
+ * Renders each cart item with image, name, price, quantity controls, and remove button
+ * Calculates and displays the total price (price * 1000 for Nigerian Naira formatting)
+ */
 function updateCartDisplay() {
+  // Render each cart item with quantity controls
   cartItems.innerHTML = cart.map(item => `
     <div class="flex items-center space-x-4 p-3 bg-gray-50 rounded-lg">
       <img src="${item.image}" alt="${item.name}" class="w-12 h-12 object-cover rounded">
@@ -177,6 +184,7 @@ function updateCartDisplay() {
     </div>
   `).join('');
 
+  // Calculate total: sum of (price * quantity) for all items, then multiply by 1000 for Naira formatting
   const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   cartTotal.textContent = `₦${(total * 1000).toLocaleString()}`;
 }
