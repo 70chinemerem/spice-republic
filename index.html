@@ -9,110 +9,242 @@
 </head>
 
 <body class="bg-white text-gray-900 transition-colors duration-300">
-  <!--theme-toggle-->
-  <button id="theme-toggle"
-    class="fixed top-4 right-4 rounded-full shadow-lg bg-gray-800 p-2  transition-colors hover:bg-gray-500">
-    ☀️
-  </button>
-  <!--logo-->
-  <a href="index.html" class="items-center flex space-x-4 p-4 bg-gray-900 text-white">
-    <h1 class="text-2xl font-semibold "><img src="src/assets/my-logo 2.png"></h1>
-  </a>
+
+
+  <!-- Navigation -->
+  <nav class="bg-gray-900 text-white px-6 py-4 flex justify-between items-center sticky top-0 z-40">
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center space-x-2">
+      <img src="src/assets/my-logo 2.png" alt="Spice Republic Logo" class="h-8 w-auto">
+      <h1 class="text-2xl font-semibold tracking-wide"></h1>
+    </a>
+
+
+    <!-- Right Side Actions -->
+    <div class="hidden md:flex items-center space-x-4">
+      <!-- Search Button -->
+      <button id="search-btn" class="text-yellow-500 hover:text-yellow-300 transition">
+        🔍
+      </button>
+      <!-- Cart Button -->
+      <button id="cart-btn" class="relative text-yellow-500 hover:text-yellow-300 transition">
+        🛒
+        <span id="cart-count"
+          class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
+      </button>
+      <!-- User Account -->
+      <a href="sign-in.html" class="hover:text-yellow-500 transition">Sign In</a>
+    </div>
+  </nav>
+
+
+
+  <!-- Search Modal -->
+  <div id="search-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+    <div class="flex items-center justify-center min-h-screen p-4">
+      <div class="bg-white rounded-lg p-6 w-full max-w-md">
+        <div class="flex items-center space-x-4">
+          <input type="text" id="search-input" placeholder="Search menu items..."
+            class="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+          <button id="search-close" class="text-gray-500 hover:text-gray-700">✕</button>
+        </div>
+        <div id="search-results" class="mt-4 max-h-60 overflow-y-auto"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Sidebar -->
+  <div id="cart-sidebar"
+    class="fixed right-0 top-0 h-full w-80 bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50">
+    <div class="p-6">
+      <div class="flex justify-between items-center mb-6">
+        <h3 class="text-xl font-semibold">Your Cart</h3>
+        <button id="cart-close" class="text-gray-500 hover:text-gray-700">✕</button>
+      </div>
+      <div id="cart-items" class="space-y-4 mb-6">
+        <!-- Cart items will be added here dynamically -->
+      </div>
+      <div class="border-t pt-4">
+        <div class="flex justify-between items-center mb-4">
+          <span class="text-lg font-semibold">Total:</span>
+          <span id="cart-total" class="text-lg font-semibold text-yellow-500">$0.00</span>
+        </div>
+        <button id="checkout-btn"
+          class="w-full bg-yellow-500 text-white py-2 rounded-lg hover:bg-yellow-600 transition">
+          Checkout
+        </button>
+      </div>
+    </div>
+  </div>
   <!-- Main Content -->
   <main class="container mx-auto px-4 py-8">
-    <h2 class="text-3xl font-bold mb-6 text-center">Welcome to Jollof & Co</h2>
-    <p class="text-lg text-center mb-8">Experience the authentic taste of West African cuisine in a vibrant and cozy
-      atmosphere.</p>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <!-- Example Dish Card -->
-      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+    <!-- Hero Section -->
+    <section class="text-center mb-12">
+      <h2 class="text-4xl font-bold mb-4 bg-gradient-to-r from-yellow-500 to-orange-500 bg-clip-text text-transparent">
+        Welcome to Spice Republic
+      </h2>
+      <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+        Experience the authentic taste of West African cuisine in a vibrant and cozy atmosphere.
+        From traditional Jollof rice to spicy Suya, we bring you the flavors of home.
+      </p>
+
+      <!-- Category Filters -->
+      <div class="flex flex-wrap justify-center gap-4 mb-8">
+        <button
+          class="category-filter active bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-600 transition"
+          data-category="all">
+          All Dishes
+        </button>
+        <button class="category-filter bg-gray-200 text-gray-700 px-6 py-2 rounded-full hover:bg-gray-300 transition"
+          data-category="rice">
+          Rice Dishes
+        </button>
+        <button class="category-filter bg-gray-200 text-gray-700 px-6 py-2 rounded-full hover:bg-gray-300 transition"
+          data-category="soup">
+          Soups & Stews
+        </button>
+        <button class="category-filter bg-gray-200 text-gray-700 px-6 py-2 rounded-full hover:bg-gray-300 transition"
+          data-category="meat">
+          Meat & Grilled
+        </button>
+        <button class="category-filter bg-gray-200 text-gray-700 px-6 py-2 rounded-full hover:bg-gray-300 transition"
+          data-category="sides">
+          Sides & Snacks
+        </button>
+      </div>
+    </section>
+
+    <!-- Menu Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="menu-grid">
+      <!-- Rice Dishes -->
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="rice">
         <img src="src/images/jollof-rice.jpg" alt="Jollof Rice" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-xl font-semibold mb-2">Jollof Rice</h3>
-          <p class="text-gray-700">A flavorful one-pot dish made with rice, tomatoes, and a blend of spices.</p>
-        </div>
-        <div class="p-4 border-t">
-          <span class="text-lg font-bold text-yellow-500">$12.99</span>
-        </div>
-      </div>
-      <div class="bg-white rounded-lg shadow-md overflow-hidden">
-        <img src="src/images/pounded-yam.jpg" alt="Pounded Yam" class="w-full h-48 object-cover">
-        <div class="p-4">
-          <h3 class="text-xl font-semibold mb-2">Pounded Yam</h3>
-          <p class="text-gray-700">A smooth and stretchy dish made from yam, often served with rich soups.</p>
-        </div>
-        <div class="p-4 border-t">
-          <span class="text-lg font-bold text-yellow-500">$10.99</span>
+          <p class="text-gray-700 mb-3">A flavorful one-pot dish made with rice, tomatoes, and a blend of spices.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">$12.99</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Jollof Rice" data-price="12.99" data-image="src/images/jollof-rice.jpg">
+              Add to Cart
+            </button>
+          </div>
         </div>
       </div>
-      <div class="bg-white rounded-lg shadow-md overflow-hidden">
-        <img src="src/images/suya.jpg" alt="Suya" class="w-full h-48 object-cover">
-        <div class="p-4">
-          <h3 class="text-xl font-semibold mb-2">Suya</h3>
-          <p class="text-gray-700">Spicy grilled meat skewers, seasoned with a special blend of spices.</p>
-        </div>
-        <div class="p-4 border-t">
-          <span class="text-lg font-bold text-yellow-500">$8.99</span>
-        </div>
-      </div>
-      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+
+      <!-- Soups & Stews -->
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="soup">
         <img src="src/images/egusi-soup.jpg" alt="Egusi Soup" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-xl font-semibold mb-2">Egusi Soup</h3>
-          <p class="text-gray-700">A rich and hearty soup made with melon seeds, vegetables, and meat or fish.</p>
-        </div>
-        <div class="p-4 border-t">
-          <span class="text-lg font-bold text-yellow-500">$11.99</span>
-        </div>
-      </div>
-      <div class="bg-white rounded-lg shadow-md overflow-hidden">
-        <img src="src/images/akara.jpg" alt="Akara" class="w-full h-48 object-cover">
-        <div class="p-4">
-          <h3 class="text-xl font-semibold mb-2">Akara</h3>
-          <p class="text-gray-700">Deep-fried bean cakes, crispy on the outside and soft on the inside.</p>
-        </div>
-        <div class="p-4 border-t">
-          <span class="text-lg font-bold text-yellow-500">$6.99</span>
+          <p class="text-gray-700 mb-3">A rich and hearty soup made with melon seeds, vegetables, and meat or fish.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">$11.99</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Egusi Soup" data-price="11.99" data-image="src/images/egusi-soup.jpg">
+              Add to Cart
+            </button>
+          </div>
         </div>
       </div>
-      <div class="bg-white rounded-lg shadow-md overflow-hidden">
-        <img src="src/images/plantain.jpg" alt="Fried Plantain" class="w-full h-48 object-cover">
-        <div class="p-4">
-          <h3 class="text-xl font-semibold mb-2">Fried Plantain</h3>
-          <p class="text-gray-700">Sweet and savory fried plantain slices, perfect as a side dish.</p>
-        </div>
-        <div class="p-4 border-t">
-          <span class="text-lg font-bold text-yellow-500">$4.99</span>
-        </div>
-      </div>
-      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="soup">
         <img src="src/images/pepper-soup.jpg" alt="Pepper Soup" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-xl font-semibold mb-2">Pepper Soup</h3>
-          <p class="text-gray-700">A spicy and aromatic soup made with meat or fish, perfect for warming up.</p>
-        </div>
-        <div class="p-4 border-t">
-          <span class="text-lg font-bold text-yellow-500">$9.99</span>
+          <p class="text-gray-700 mb-3">A spicy and aromatic soup made with meat or fish, perfect for warming up.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">$9.99</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Pepper Soup" data-price="9.99" data-image="src/images/pepper-soup.jpg">
+              Add to Cart
+            </button>
+          </div>
         </div>
       </div>
-      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="soup">
         <img src="src/images/banga-soup.jpg" alt="Banga Soup" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-xl font-semibold mb-2">Banga Soup</h3>
-          <p class="text-gray-700">A rich palm nut soup, often served with starch or fufu.</p>
-        </div>
-        <div class="p-4 border-t">
-          <span class="text-lg font-bold text-yellow-500">$12.49</span>
+          <p class="text-gray-700 mb-3">A rich palm nut soup, often served with starch or fufu.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">$12.49</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Banga Soup" data-price="12.49" data-image="src/images/banga-soup.jpg">
+              Add to Cart
+            </button>
+          </div>
         </div>
       </div>
-      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+
+      <!-- Meat & Grilled -->
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="meat">
+        <img src="src/images/suya.jpg" alt="Suya" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Suya</h3>
+          <p class="text-gray-700 mb-3">Spicy grilled meat skewers, seasoned with a special blend of spices.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">$8.99</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Suya" data-price="8.99" data-image="src/images/suya.jpg">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sides & Snacks -->
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="sides">
+        <img src="src/images/akara.jpg" alt="Akara" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Akara</h3>
+          <p class="text-gray-700 mb-3">Deep-fried bean cakes, crispy on the outside and soft on the inside.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">$6.99</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Akara" data-price="6.99" data-image="src/images/akara.jpg">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="sides">
+        <img src="src/images/plantain.jpg" alt="Fried Plantain" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Fried Plantain</h3>
+          <p class="text-gray-700 mb-3">Sweet and savory fried plantain slices, perfect as a side dish.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">$4.99</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Fried Plantain" data-price="4.99" data-image="src/images/plantain.jpg">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="sides">
         <img src="src/images/naan-bread.jpg" alt="Naan Bread" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-xl font-semibold mb-2">Naan Bread</h3>
-          <p class="text-gray-700">Soft and fluffy flatbread, perfect for dipping into soups and stews.</p>
-        </div>
-        <div class="p-4 border-t">
-          <span class="text-lg font-bold text-yellow-500">$3.99</span>
+          <p class="text-gray-700 mb-3">Soft and fluffy flatbread, perfect for dipping into soups and stews.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">$3.99</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Naan Bread" data-price="3.99" data-image="src/images/naan-bread.jpg">
+              Add to Cart
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -121,8 +253,135 @@
       <a href="menu.html" class="text-yellow-500 font-semibold hover:underline">View Full Menu</a>
     </span>
   </main>
-  <footer class="bg-gray-900 text-white text-center p-4 mt-8">
-    <p>&copy; 2024 Jollof & Co. All rights reserved.</p>
+
+  <!-- Customer Reviews Section -->
+  <section class="bg-gray-50 py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">What Our Customers Say</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="flex items-center mb-4">
+            <div class="flex text-yellow-500">
+              ⭐⭐⭐⭐⭐
+            </div>
+            <span class="ml-2 text-gray-600">5.0</span>
+          </div>
+          <p class="text-gray-700 mb-4">"The Jollof rice here is absolutely amazing! It tastes just like my grandmother
+            used to make. The atmosphere is warm and welcoming."</p>
+          <div class="flex items-center">
+            <div class="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center text-white font-bold">
+              A
+            </div>
+            <div class="ml-3">
+              <p class="font-semibold">Aisha Johnson</p>
+              <p class="text-sm text-gray-600">Regular Customer</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="flex items-center mb-4">
+            <div class="flex text-yellow-500">
+              ⭐⭐⭐⭐⭐
+            </div>
+            <span class="ml-2 text-gray-600">5.0</span>
+          </div>
+          <p class="text-gray-700 mb-4">"Best African restaurant in the city! The Suya is perfectly spiced and the
+            service is excellent. Highly recommended!"</p>
+          <div class="flex items-center">
+            <div class="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center text-white font-bold">
+              M
+            </div>
+            <div class="ml-3">
+              <p class="font-semibold">Michael Chen</p>
+              <p class="text-sm text-gray-600">Food Blogger</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="flex items-center mb-4">
+            <div class="flex text-yellow-500">
+              ⭐⭐⭐⭐⭐
+            </div>
+            <span class="ml-2 text-gray-600">5.0</span>
+          </div>
+          <p class="text-gray-700 mb-4">"Authentic flavors and generous portions. The Egusi soup is incredible! This
+            place has become our family's favorite spot."</p>
+          <div class="flex items-center">
+            <div class="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center text-white font-bold">
+              S
+            </div>
+            <div class="ml-3">
+              <p class="font-semibold">Sarah Williams</p>
+              <p class="text-sm text-gray-600">Local Resident</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Signup -->
+  <section class="bg-yellow-500 py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">Stay Updated</h2>
+      <p class="text-white mb-8 max-w-2xl mx-auto">
+        Subscribe to our newsletter and be the first to know about new menu items, special offers, and events!
+      </p>
+      <form id="newsletter-form" class="max-w-md mx-auto">
+        <div class="flex gap-4">
+          <input type="email" id="newsletter-email" placeholder="Enter your email"
+            class="flex-1 px-4 py-3 rounded-lg border-0 focus:outline-none focus:ring-2 focus:ring-white" required>
+          <button type="submit" class="bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition">
+            Subscribe
+          </button>
+        </div>
+        <p id="newsletter-message" class="mt-4 text-sm"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Spice Republic</h3>
+          <p class="text-gray-400">Bringing authentic West African cuisine to your table with love and tradition.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="menu.html" class="hover:text-yellow-500 transition">Menu</a></li>
+            <li><a href="about-us.html" class="hover:text-yellow-500 transition">About Us</a></li>
+            <li><a href="contact-us.html" class="hover:text-yellow-500 transition">Contact</a></li>
+            <li><a href="#" class="hover:text-yellow-500 transition">Order Online</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Contact Info</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li>📍 123 Spice Street, City</li>
+            <li>📞 (555) 123-4567</li>
+            <li>✉️ info@spicerepublic.com</li>
+            <li>🕒 Mon-Sun: 11AM-10PM</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Follow Us</h4>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-yellow-500 transition">📘</a>
+            <a href="#" class="text-gray-400 hover:text-yellow-500 transition">📷</a>
+            <a href="#" class="text-gray-400 hover:text-yellow-500 transition">🐦</a>
+            <a href="#" class="text-gray-400 hover:text-yellow-500 transition">📱</a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+        <p>&copy; 2024 Spice Republic. All rights reserved.</p>
+      </div>
+    </div>
   </footer>
   <script src="/src/main.js"></script>
 
