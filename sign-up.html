@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Spice Republic</title>
+    <link rel="stylesheet" href="src/style.css" />
+</head>
+
+<body class="bg-white text-gray-900 transition-colors duration-300">
+    <!--theme-toggle-->
+    <button id="theme-toggle"
+        class="fixed top-4 right-4 rounded-full shadow-lg bg-gray-800 p-2 z-50 transition-colors hover:bg-gray-500">
+        ☀️
+    </button>
+
+    <!-- Navigation -->
+    <nav class="bg-gray-900 text-white px-6 py-4 flex justify-between items-center sticky top-0 z-40">
+        <a href="index.html" class="flex items-center space-x-2">
+            <img src="src/assets/my-logo 2.png" alt="Spice Republic Logo" class="h-8 w-auto">
+            <h1 class="text-2xl font-semibold tracking-wide">Spice Republic</h1>
+        </a>
+        <a href="sign-in.html" class="text-yellow-500 hover:text-yellow-300 transition">Sign In</a>
+    </nav>
+
+    <!-- Sign Up Form -->
+    <main class="container mx-auto px-4 py-12 max-w-lg">
+        <h2 class="text-3xl font-bold text-center mb-8">Create your account</h2>
+
+        <form id="signup-form" class="bg-white shadow-md rounded-lg p-6 space-y-5">
+            <div>
+                <label class="block text-sm font-medium mb-1" for="name">Full Name</label>
+                <input id="name" type="text" required placeholder="John Doe"
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                <p id="name-error" class="mt-1 text-sm text-red-600 hidden">Please enter your name.</p>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-1" for="email">Email</label>
+                <input id="email" type="email" required placeholder="you@example.com"
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                <p id="email-error" class="mt-1 text-sm text-red-600 hidden">Enter a valid email address.</p>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-1" for="password">Password</label>
+                <input id="password" type="password" minlength="6" required placeholder="••••••••"
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                <p id="password-error" class="mt-1 text-sm text-red-600 hidden">Password must be at least 6 characters.
+                </p>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-1" for="confirm">Confirm Password</label>
+                <input id="confirm" type="password" required placeholder="••••••••"
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                <p id="confirm-error" class="mt-1 text-sm text-red-600 hidden">Passwords do not match.</p>
+            </div>
+
+            <div class="flex items-center">
+                <input id="terms" type="checkbox" class="mr-2">
+                <label for="terms" class="text-sm">I agree to the <a href="#"
+                        class="text-yellow-600 hover:underline">Terms & Privacy</a></label>
+            </div>
+            <p id="terms-error" class="mt-1 text-sm text-red-600 hidden">You must accept the terms to continue.</p>
+
+            <button type="submit"
+                class="w-full bg-yellow-500 text-white py-2 rounded-lg hover:bg-yellow-600 transition">
+                Create account
+            </button>
+
+            <p class="text-center text-sm text-gray-600">Already have an account? <a href="sign-in.html"
+                    class="text-yellow-600 hover:underline">Sign in</a></p>
+        </form>
+    </main>
+    <section class="text-center p-4 mt-8">
+        <a href="index.html"
+            class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded items-center">
+            Back to Home</a>
+    </section>
+
+    <script src="/src/main.js"></script>
+    <script>
+        // Simple sign-up handler with client validation and demo persistence
+        (function () {
+            const form = document.getElementById('signup-form');
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            const confirmInput = document.getElementById('confirm');
+            const terms = document.getElementById('terms');
+
+            const nameErr = document.getElementById('name-error');
+            const emailErr = document.getElementById('email-error');
+            const passwordErr = document.getElementById('password-error');
+            const confirmErr = document.getElementById('confirm-error');
+            const termsErr = document.getElementById('terms-error');
+
+            function show(el) { el.classList.remove('hidden'); }
+            function hide(el) { el.classList.add('hidden'); }
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                let valid = true;
+
+                // Reset errors
+                [nameErr, emailErr, passwordErr, confirmErr, termsErr].forEach(hide);
+
+                // Validate fields
+                if (!nameInput.value.trim()) { show(nameErr); valid = false; }
+                const emailVal = emailInput.value.trim();
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) { show(emailErr); valid = false; }
+                if (passwordInput.value.length < 6) { show(passwordErr); valid = false; }
+                if (confirmInput.value !== passwordInput.value) { show(confirmErr); valid = false; }
+                if (!terms.checked) { show(termsErr); valid = false; }
+
+                if (!valid) return;
+
+                // Demo persistence
+                const users = JSON.parse(localStorage.getItem('users') || '[]');
+                users.push({
+                    name: nameInput.value.trim(),
+                    email: emailVal,
+                    // Do NOT store plaintext passwords in real apps
+                    password: passwordInput.value,
+                    createdAt: new Date().toISOString()
+                });
+                localStorage.setItem('users', JSON.stringify(users));
+
+                // Redirect or show success
+                alert('Account created! You can now sign in.');
+                window.location.href = 'sign-in.html';
+            });
+        })();
+    </script>
+
+</body>
+
+</html>

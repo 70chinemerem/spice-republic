@@ -21,7 +21,7 @@
 
 
     <!-- Right Side Actions -->
-    <div class="hidden md:flex items-center space-x-4">
+    <div class="flex items-center space-x-4">
       <!-- Search Button -->
       <button id="search-btn" class="text-yellow-500 hover:text-yellow-300 transition">
         🔍
@@ -33,7 +33,14 @@
           class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
       </button>
       <!-- User Account -->
-      <a href="sign-in.html" class="hover:text-yellow-500 transition">Sign In</a>
+      <div id="user-account">
+        <a href="sign-in.html" class="bg-yellow-400 text-gray-900 px-3 py-1 rounded-lg hover:bg-yellow-300 transition"
+          id="signup-link">Sign In</a>
+        <div id="user-menu" class="hidden items-center space-x-2">
+          <span id="user-name" class="text-yellow-500"></span>
+          <button id="logout-btn" class="text-gray-400 hover:text-yellow-500 transition">Logout</button>
+        </div>
+      </div>
     </div>
   </nav>
 

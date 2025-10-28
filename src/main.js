@@ -275,6 +275,40 @@ if (newsletterForm) {
 // Initialize cart count on page load
 updateCartCount();
 
+// 👤 User Session Management
+function checkUserSession() {
+  const currentUser = localStorage.getItem('currentUser');
+  const signinLink = document.getElementById('signin-link');
+  const signupLink = document.getElementById('signup-link');
+  const userMenu = document.getElementById('user-menu');
+  const userName = document.getElementById('user-name');
+  const logoutBtn = document.getElementById('logout-btn');
+
+  if (currentUser && signinLink && signupLink && userMenu && userName && logoutBtn) {
+    const user = JSON.parse(currentUser);
+
+    // Hide sign in/up links
+    signinLink.style.display = 'none';
+    signupLink.style.display = 'none';
+
+    // Show user menu
+    userMenu.classList.remove('hidden');
+    userMenu.classList.add('flex');
+    userName.textContent = `Hi, ${user.name}`;
+
+    // Logout functionality
+    logoutBtn.addEventListener('click', () => {
+      localStorage.removeItem('currentUser');
+      localStorage.removeItem('rememberUser');
+      alert('You have been logged out.');
+      location.reload();
+    });
+  }
+}
+
+// Check user session on page load
+checkUserSession();
+
 // Add CSS animations
 const style = document.createElement('style');
 style.textContent = `

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Spice Republic</title>
+    <link rel="stylesheet" href="src/style.css" />
+</head>
+
+<body class="bg-white text-gray-900 transition-colors duration-300">
+
+    <!-- Navigation -->
+    <nav class="bg-gray-900 text-white px-6 py-4 flex justify-between items-center sticky top-0 z-40">
+        <a href="index.html" class="flex items-center space-x-2">
+            <img src="src/assets/my-logo 2.png" alt="Spice Republic Logo" class="h-8 w-auto">
+            <h1 class="text-2xl font-semibold tracking-wide"></h1>
+        </a>
+
+    </nav>
+
+    <!-- Sign In Form -->
+    <main class="container mx-auto px-4 py-12 max-w-lg">
+        <h2 class="text-3xl font-bold text-center mb-8">Welcome back</h2>
+
+        <form id="signin-form" class="bg-white shadow-md rounded-lg p-6 space-y-5">
+            <div>
+                <label class="block text-sm font-medium mb-1" for="email">Email</label>
+                <input id="email" type="email" required placeholder="you@example.com"
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                <p id="email-error" class="mt-1 text-sm text-red-600 hidden">Please enter your email.</p>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-1" for="password">Password</label>
+                <input id="password" type="password" required placeholder="••••••••"
+                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                <p id="password-error" class="mt-1 text-sm text-red-600 hidden">Please enter your password.</p>
+            </div>
+
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <input id="remember" type="checkbox" class="mr-2">
+                    <label for="remember" class="text-sm">Remember me</label>
+                </div>
+                <a href="#" class="text-sm text-yellow-600 hover:underline">Forgot password?</a>
+            </div>
+
+            <p id="login-error" class="text-sm text-red-600 hidden text-center">Invalid email or password.</p>
+
+            <button type="submit"
+                class="w-full bg-yellow-500 text-white py-2 rounded-lg hover:bg-yellow-600 transition">
+                Sign In
+            </button>
+
+            <p class="text-center text-sm text-gray-600">Don't have an account? <a href="sign-up.html"
+                    class="text-yellow-600 hover:underline">Sign Up</a></p>
+        </form>
+
+        <!-- Demo Users Info -->
+        <div class="mt-8 bg-gray-50 rounded-lg p-4">
+            <h3 class="text-sm font-semibold text-gray-700 mb-2">Demo Users:</h3>
+            <p class="text-xs text-gray-600">Use any email/password combination from users created via the sign-up form,
+                or create a new account.</p>
+        </div>
+    </main>
+    <section class="text-center p-4 mt-8">
+        <a href="index.html"
+            class="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded items-center">
+            Back to Home</a>
+    </section>
+
+    <script src="/src/main.js"></script>
+    <script>
+        // Sign-in handler with localStorage validation
+        (function () {
+            const form = document.getElementById('signin-form');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            const rememberCheckbox = document.getElementById('remember');
+
+            const emailErr = document.getElementById('email-error');
+            const passwordErr = document.getElementById('password-error');
+            const loginErr = document.getElementById('login-error');
+
+            function show(el) { el.classList.remove('hidden'); }
+            function hide(el) { el.classList.add('hidden'); }
+
+            // Check if user is already logged in
+            const currentUser = localStorage.getItem('currentUser');
+            if (currentUser) {
+                const user = JSON.parse(currentUser);
+                alert(`Welcome back, ${user.name}!`);
+                window.location.href = 'index.html';
+            }
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                let valid = true;
+
+                // Reset errors
+                [emailErr, passwordErr, loginErr].forEach(hide);
+
+                const email = emailInput.value.trim();
+                const password = passwordInput.value;
+
+                // Basic validation
+                if (!email) {
+                    show(emailErr);
+                    valid = false;
+                }
+                if (!password) {
+                    show(passwordErr);
+                    valid = false;
+                }
+
+                if (!valid) return;
+
+                // Check against stored users
+                const users = JSON.parse(localStorage.getItem('users') || '[]');
+                const user = users.find(u => u.email === email && u.password === password);
+
+                if (!user) {
+                    show(loginErr);
+                    return;
+                }
+
+                // Successful login
+                const userSession = {
+                    name: user.name,
+                    email: user.email,
+                    loginTime: new Date().toISOString()
+                };
+
+                // Store current user session
+                localStorage.setItem('currentUser', JSON.stringify(userSession));
+
+                // Set remember me cookie (demo)
+                if (rememberCheckbox.checked) {
+                    localStorage.setItem('rememberUser', 'true');
+                }
+
+                // Show success and redirect
+                alert(`Welcome back, ${user.name}!`);
+                window.location.href = 'index.html';
+            });
+
+            // Auto-fill email if remembered
+            if (localStorage.getItem('rememberUser') === 'true') {
+                const currentUser = localStorage.getItem('currentUser');
+                if (currentUser) {
+                    const user = JSON.parse(currentUser);
+                    emailInput.value = user.email;
+                    rememberCheckbox.checked = true;
+                }
+            }
+        })();
+    </script>
+
+</body>
+
+</html>
