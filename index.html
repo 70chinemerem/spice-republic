@@ -8,8 +8,52 @@
   <link rel="stylesheet" href="src/style.css">
 </head>
 
-<body>
+<body class="bg-red-400 text-gray-900">
+  <!--theme-toggle-->
+  <button id="theme-toggle"
+    class="fixed top-4 right-4 rounded-full shadow-lg bg-gray-800 p-2  transition-colors hover:bg-gray-500">
+    ☀️
+  </button>
+  <nav class="bg-[#1b0f09] text-white px-6 py-4 flex justify-between items-center">
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center space-x-2">
+      <h1 class="text-2xl font-semibold tracking-wide">Caffeine ☕</h1>
+    </a>
+
+    <!-- Mobile menu button -->
+    <button id="menu-btn" class="md:hidden text-yellow-500 text-3xl focus:outline-none">
+      ☰
+    </button>
+
+    <!-- Nav Links -->
+    <ul id="menu" class="hidden md:flex space-x-8 text-sm mt-4 md:mt-0">
+      <li><a href="index.html" class="hover:text-yellow-500 transition">Home</a></li>
+      <li><a href="menu.html" class="hover:text-yellow-500 transition">Menu</a></li>
+      <li><a href="about-us.html" class="hover:text-yellow-500 transition">About Us</a></li>
+      <li><a href="facilities.html" class="hover:text-yellow-500 transition">Facilities</a></li>
+      <li><a href="contact-us.html" class="hover:text-yellow-500 transition">Contact Us</a></li>
+    </ul>
+
+    <!-- Right Side -->
+    <div class="hidden md:flex items-center space-x-4">
+      <a href="sign-in.html" class="hover:text-yellow-500 transition">Sign In</a>
+      <a href="search.html" class="hover:text-yellow-500 transition">🔍</a>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu (Dropdown) -->
+  <div id="mobile-menu" class="md:hidden hidden flex flex-col bg-[#1b0f09] text-white space-y-2 p-4">
+    <a href="index.html" class="hover:text-yellow-500">Home</a>
+    <a href="menu.html" class="hover:text-yellow-500">Menu</a>
+    <a href="about-us.html" class="hover:text-yellow-500">About Us</a>
+    <a href="facilities.html" class="hover:text-yellow-500">Facilities</a>
+    <a href="contact-us.html" class="hover:text-yellow-500">Contact Us</a>
+    <a href="sign-in.html" class="hover:text-yellow-500">Sign In</a>
+    <a href="search.html" class="hover:text-yellow-500">🔍</a>
+  </div>
+
 </body>
-<script src="/src/main.js"></script>
+<script src=" /src/main.js">
+</script>
 
 </html>
