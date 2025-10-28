@@ -1,24 +1,39 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+// ☀️ Theme Toggle
+const themeBtn = document.getElementById("theme-toggle");
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+// Check if theme toggle button exists before adding event listener
+if (themeBtn) {
+  themeBtn.addEventListener("click", () => {
+    // Toggle dark class on document element
+    document.documentElement.classList.toggle("dark");
+    // Determine current mode and update button
+    const mode = document.documentElement.classList.contains("dark")
+      ? "dark"
+      : "light";
+    localStorage.setItem("theme", mode);
+    themeBtn.textContent = mode === "dark" ? "☪︎" : "☀️";
+  });
 
-setupCounter(document.querySelector('#counter'))
+  // Load saved theme preference on page load
+  if (localStorage.getItem("theme") === "dark") {
+    document.documentElement.classList.add("dark");
+    themeBtn.textContent = "☪︎";
+  }
+}
+
+// 🎯 Scroll to Services Section
+const scrollBtn = document.getElementById('scrollBtn');
+if (scrollBtn) {
+  scrollBtn.addEventListener('click', () => {
+    const servicesSection = document.getElementById('services');
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // Fallback: scroll to first section after hero
+      const firstSection = document.querySelector('section:not(.min-h-screen)');
+      if (firstSection) {
+        firstSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  });
+}
