@@ -62,25 +62,31 @@
 
   <!-- Cart Sidebar -->
   <div id="cart-sidebar"
-    class="fixed right-0 top-0 h-full w-80 bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50">
-    <div class="p-6">
-      <div class="flex justify-between items-center mb-6">
+    class="fixed right-0 top-0 h-full w-80 bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50 flex flex-col">
+    <!-- Cart Header - Fixed at top -->
+    <div class="p-6 border-b border-gray-200 flex-shrink-0">
+      <div class="flex justify-between items-center">
         <h3 class="text-xl font-semibold">Your Cart</h3>
         <button id="cart-close" class="text-gray-500 hover:text-gray-700">✕</button>
       </div>
-      <div id="cart-items" class="space-y-4 mb-6">
+    </div>
+
+    <!-- Cart Items - Scrollable area -->
+    <div class="flex-1 overflow-y-auto p-6">
+      <div id="cart-items" class="space-y-4">
         <!-- Cart items will be added here dynamically -->
       </div>
-      <div class="border-t pt-4">
-        <div class="flex justify-between items-center mb-4">
-          <span class="text-lg font-semibold">Total:</span>
-          <span id="cart-total" class="text-lg font-semibold text-yellow-500">$0.00</span>
-        </div>
-        <button id="checkout-btn"
-          class="w-full bg-yellow-500 text-white py-2 rounded-lg hover:bg-yellow-600 transition">
-          Checkout
-        </button>
+    </div>
+
+    <!-- Cart Footer - Fixed at bottom -->
+    <div class="border-t border-gray-200 p-6 flex-shrink-0">
+      <div class="flex justify-between items-center mb-4">
+        <span class="text-lg font-semibold">Total:</span>
+        <span id="cart-total" class="text-lg font-semibold text-yellow-500">₦0</span>
       </div>
+      <button id="checkout-btn" class="w-full bg-yellow-500 text-white py-2 rounded-lg hover:bg-yellow-600 transition">
+        Checkout
+      </button>
     </div>
   </div>
   <!-- Main Content -->
@@ -126,14 +132,14 @@
       <!-- Rice Dishes -->
       <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
         data-category="rice">
-        <img src="src/images/jollof-rice.jpg" alt="Jollof Rice" class="w-full h-48 object-cover">
+        <img src="src/assets/jellof.webp" alt="Jollof Rice" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-xl font-semibold mb-2">Jollof Rice</h3>
           <p class="text-gray-700 mb-3">A flavorful one-pot dish made with rice, tomatoes, and a blend of spices.</p>
           <div class="flex justify-between items-center">
-            <span class="text-lg font-bold text-yellow-500">$12.99</span>
+            <span class="text-lg font-bold text-yellow-500">₦12,990</span>
             <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
-              data-name="Jollof Rice" data-price="12.99" data-image="src/images/jollof-rice.jpg">
+              data-name="Jollof Rice" data-price="12.99" data-image="src/assets/jellof.webp">
               Add to Cart
             </button>
           </div>
@@ -143,14 +149,14 @@
       <!-- Soups & Stews -->
       <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
         data-category="soup">
-        <img src="src/images/egusi-soup.jpg" alt="Egusi Soup" class="w-full h-48 object-cover">
+        <img src="src/assets/egusi.webp" alt="Egusi Soup" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-xl font-semibold mb-2">Egusi Soup</h3>
           <p class="text-gray-700 mb-3">A rich and hearty soup made with melon seeds, vegetables, and meat or fish.</p>
           <div class="flex justify-between items-center">
-            <span class="text-lg font-bold text-yellow-500">$11.99</span>
+            <span class="text-lg font-bold text-yellow-500">₦15,200</span>
             <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
-              data-name="Egusi Soup" data-price="11.99" data-image="src/images/egusi-soup.jpg">
+              data-name="Egusi Soup" data-price="15.20" data-image="src/assets/egusi.webp">
               Add to Cart
             </button>
           </div>
@@ -159,14 +165,14 @@
 
       <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
         data-category="soup">
-        <img src="src/images/pepper-soup.jpg" alt="Pepper Soup" class="w-full h-48 object-cover">
+        <img src="src/assets/pepper-soup.jpeg" alt="Pepper Soup" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-xl font-semibold mb-2">Pepper Soup</h3>
           <p class="text-gray-700 mb-3">A spicy and aromatic soup made with meat or fish, perfect for warming up.</p>
           <div class="flex justify-between items-center">
-            <span class="text-lg font-bold text-yellow-500">$9.99</span>
+            <span class="text-lg font-bold text-yellow-500">₦5,000</span>
             <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
-              data-name="Pepper Soup" data-price="9.99" data-image="src/images/pepper-soup.jpg">
+              data-name="Pepper Soup" data-price="5.00" data-image="src/assets/pepper-soup.jpeg">
               Add to Cart
             </button>
           </div>
@@ -175,14 +181,14 @@
 
       <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
         data-category="soup">
-        <img src="src/images/banga-soup.jpg" alt="Banga Soup" class="w-full h-48 object-cover">
+        <img src="src/assets/banga.webp" alt="Banga Soup" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-xl font-semibold mb-2">Banga Soup</h3>
           <p class="text-gray-700 mb-3">A rich palm nut soup, often served with starch or fufu.</p>
           <div class="flex justify-between items-center">
-            <span class="text-lg font-bold text-yellow-500">$12.49</span>
+            <span class="text-lg font-bold text-yellow-500">₦12,490</span>
             <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
-              data-name="Banga Soup" data-price="12.49" data-image="src/images/banga-soup.jpg">
+              data-name="Banga Soup" data-price="12.49" data-image="src/assets/banga.webp">
               Add to Cart
             </button>
           </div>
@@ -192,31 +198,62 @@
       <!-- Meat & Grilled -->
       <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
         data-category="meat">
-        <img src="src/images/suya.jpg" alt="Suya" class="w-full h-48 object-cover">
+        <img src="src/assets/suya.jpeg" alt="Suya" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-xl font-semibold mb-2">Suya</h3>
           <p class="text-gray-700 mb-3">Spicy grilled meat skewers, seasoned with a special blend of spices.</p>
           <div class="flex justify-between items-center">
-            <span class="text-lg font-bold text-yellow-500">$8.99</span>
+            <span class="text-lg font-bold text-yellow-500">₦8,990</span>
             <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
-              data-name="Suya" data-price="8.99" data-image="src/images/suya.jpg">
+              data-name="Suya" data-price="8.99" data-image="src/assets/suya.jpeg">
               Add to Cart
             </button>
           </div>
         </div>
       </div>
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="meat">
+        <img src="src/assets/chiken.jpeg" alt="Grilled Chicken" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Grilled Chicken</h3>
+          <p class="text-gray-700 mb-3">Tender chicken marinated in African spices and grilled to perfection.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦10,990</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Grilled Chicken" data-price="10.99" data-image="src/assets/chiken.jpeg">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="meat">
+        <img src="src/assets/grilled fish.jpeg" alt="Grilled Fish" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Grilled Fish</h3>
+          <p class="text-gray-700 mb-3">Fresh fish seasoned with herbs and spices, grilled to flaky perfection.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦13,990</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Grilled Fish" data-price="13.99" data-image="src/assets/grilled fish.jpeg">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
 
       <!-- Sides & Snacks -->
       <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
         data-category="sides">
-        <img src="src/images/akara.jpg" alt="Akara" class="w-full h-48 object-cover">
+        <img src="src/assets/akara.jpeg" alt="Akara" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-xl font-semibold mb-2">Akara</h3>
           <p class="text-gray-700 mb-3">Deep-fried bean cakes, crispy on the outside and soft on the inside.</p>
           <div class="flex justify-between items-center">
-            <span class="text-lg font-bold text-yellow-500">$6.99</span>
+            <span class="text-lg font-bold text-yellow-500">₦6,990</span>
             <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
-              data-name="Akara" data-price="6.99" data-image="src/images/akara.jpg">
+              data-name="Akara" data-price="6.99" data-image="src/assets/akara.jpeg">
               Add to Cart
             </button>
           </div>
@@ -225,14 +262,14 @@
 
       <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
         data-category="sides">
-        <img src="src/images/plantain.jpg" alt="Fried Plantain" class="w-full h-48 object-cover">
+        <img src="src/assets/plantain.jpeg" alt="Fried Plantain" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-xl font-semibold mb-2">Fried Plantain</h3>
           <p class="text-gray-700 mb-3">Sweet and savory fried plantain slices, perfect as a side dish.</p>
           <div class="flex justify-between items-center">
-            <span class="text-lg font-bold text-yellow-500">$4.99</span>
+            <span class="text-lg font-bold text-yellow-500">₦4,990</span>
             <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
-              data-name="Fried Plantain" data-price="4.99" data-image="src/images/plantain.jpg">
+              data-name="Fried Plantain" data-price="4.99" data-image="src/assets/plantain.jpeg">
               Add to Cart
             </button>
           </div>
@@ -241,14 +278,14 @@
 
       <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
         data-category="sides">
-        <img src="src/images/naan-bread.jpg" alt="Naan Bread" class="w-full h-48 object-cover">
+        <img src="src/assets/naan bread.jpeg" alt="Naan Bread" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-xl font-semibold mb-2">Naan Bread</h3>
           <p class="text-gray-700 mb-3">Soft and fluffy flatbread, perfect for dipping into soups and stews.</p>
           <div class="flex justify-between items-center">
-            <span class="text-lg font-bold text-yellow-500">$3.99</span>
+            <span class="text-lg font-bold text-yellow-500">₦3,990</span>
             <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
-              data-name="Naan Bread" data-price="3.99" data-image="src/images/naan-bread.jpg">
+              data-name="Naan Bread" data-price="3.99" data-image="src/assets/naan bread.jpeg">
               Add to Cart
             </button>
           </div>

@@ -36,10 +36,12 @@ const searchResults = document.getElementById('search-results');
 // Menu items data for search
 const menuItems = [
   { name: "Jollof Rice", category: "rice", price: 12.99, description: "A flavorful one-pot dish made with rice, tomatoes, and a blend of spices." },
-  { name: "Egusi Soup", category: "soup", price: 11.99, description: "A rich and hearty soup made with melon seeds, vegetables, and meat or fish." },
-  { name: "Pepper Soup", category: "soup", price: 9.99, description: "A spicy and aromatic soup made with meat or fish, perfect for warming up." },
+  { name: "Egusi Soup", category: "soup", price: 15.20, description: "A rich and hearty soup made with melon seeds, vegetables, and meat or fish." },
+  { name: "Pepper Soup", category: "soup", price: 5.00, description: "A spicy and aromatic soup made with meat or fish, perfect for warming up." },
   { name: "Banga Soup", category: "soup", price: 12.49, description: "A rich palm nut soup, often served with starch or fufu." },
   { name: "Suya", category: "meat", price: 8.99, description: "Spicy grilled meat skewers, seasoned with a special blend of spices." },
+  { name: "Grilled Chicken", category: "meat", price: 10.99, description: "Tender chicken marinated in African spices and grilled to perfection." },
+  { name: "Grilled Fish", category: "meat", price: 13.99, description: "Fresh fish seasoned with herbs and spices, grilled to flaky perfection." },
   { name: "Akara", category: "sides", price: 6.99, description: "Deep-fried bean cakes, crispy on the outside and soft on the inside." },
   { name: "Fried Plantain", category: "sides", price: 4.99, description: "Sweet and savory fried plantain slices, perfect as a side dish." },
   { name: "Naan Bread", category: "sides", price: 3.99, description: "Soft and fluffy flatbread, perfect for dipping into soups and stews." }
@@ -78,7 +80,7 @@ if (searchInput && searchResults) {
       <div class="p-3 border-b hover:bg-gray-50 cursor-pointer" onclick="addToCartFromSearch('${item.name}', ${item.price})">
         <h4 class="font-semibold">${item.name}</h4>
         <p class="text-sm text-gray-600">${item.description}</p>
-        <span class="text-yellow-500 font-bold">$${item.price}</span>
+        <span class="text-yellow-500 font-bold">₦${(item.price * 1000).toLocaleString()}</span>
       </div>
     `).join('');
   });
@@ -164,7 +166,7 @@ function updateCartDisplay() {
       <img src="${item.image}" alt="${item.name}" class="w-12 h-12 object-cover rounded">
       <div class="flex-1">
         <h4 class="font-semibold">${item.name}</h4>
-        <p class="text-sm text-gray-600">$${item.price}</p>
+        <p class="text-sm text-gray-600">₦${(item.price * 1000).toLocaleString()}</p>
       </div>
       <div class="flex items-center space-x-2">
         <button onclick="updateQuantity('${item.name}', -1)" class="bg-gray-200 px-2 py-1 rounded">-</button>
@@ -176,7 +178,7 @@ function updateCartDisplay() {
   `).join('');
 
   const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-  cartTotal.textContent = `$${total.toFixed(2)}`;
+  cartTotal.textContent = `₦${(total * 1000).toLocaleString()}`;
 }
 
 function updateQuantity(name, change) {
@@ -209,7 +211,7 @@ if (checkoutBtn) {
     }
 
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    alert(`Thank you for your order! Total: $${total.toFixed(2)}\n\nThis is a demo - no actual payment will be processed.`);
+    alert(`Thank you for your order! Total: ₦${(total * 1000).toLocaleString()}\n\nThis is a demo - no actual payment will be processed.`);
 
     // Clear cart after checkout
     cart = [];
