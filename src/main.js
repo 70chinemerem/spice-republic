@@ -26,6 +26,13 @@ const menuItems = [
   { name: "Ofada Rice", category: "rice", price: 13.99, description: "Local Nigerian rice served with spicy palm oil sauce and assorted meat." },
   { name: "Bisi Bele Bath", category: "rice", price: 12.49, description: "Spicy rice dish with lentils, vegetables, and aromatic spices." },
   { name: "Rice and Beans", category: "rice", price: 8.99, description: "Nutritious combination of rice and beans cooked together." },
+  { name: "Coconut Jollof", category: "rice", price: 13.99, description: "Jollof rice cooked with coconut milk for extra richness." },
+  { name: "Basmati Rice", category: "rice", price: 9.99, description: "Fragrant long-grain basmati rice, perfectly cooked." },
+  { name: "Wild Rice", category: "rice", price: 11.99, description: "Nutty wild rice with vegetables and herbs." },
+  { name: "Rice Pilaf", category: "rice", price: 10.99, description: "Aromatic rice pilaf with spices and vegetables." },
+  { name: "Red Rice", category: "rice", price: 12.99, description: "Traditional red rice cooked with palm oil and spices." },
+  { name: "Yellow Rice", category: "rice", price: 11.49, description: "Golden yellow rice with turmeric and spices." },
+  { name: "Rice Porridge", category: "rice", price: 7.99, description: "Creamy rice porridge, perfect for breakfast." },
 
   // Soups & Stews
   { name: "Egusi Soup", category: "soup", price: 15.20, description: "A rich and hearty soup made with melon seeds, vegetables, and meat or fish." },
@@ -38,6 +45,13 @@ const menuItems = [
   { name: "Fish Stew", category: "soup", price: 13.49, description: "Rich tomato-based stew with fresh fish and vegetables." },
   { name: "Goat Meat Soup", category: "soup", price: 14.99, description: "Hearty soup made with tender goat meat and traditional spices." },
   { name: "Chicken Stew", category: "soup", price: 12.99, description: "Flavorful stew made with chicken, tomatoes, and aromatic spices." },
+  { name: "Beef Stew", category: "soup", price: 13.99, description: "Rich beef stew with vegetables and traditional spices." },
+  { name: "Lamb Stew", category: "soup", price: 14.99, description: "Tender lamb stew with aromatic herbs and spices." },
+  { name: "Palm Oil Soup", category: "soup", price: 12.99, description: "Traditional soup made with palm oil and assorted meat." },
+  { name: "Groundnut Soup", category: "soup", price: 13.99, description: "Rich soup made with groundnut paste and vegetables." },
+  { name: "Tomato Stew", category: "soup", price: 11.99, description: "Classic tomato-based stew with choice of protein." },
+  { name: "Spinach Soup", category: "soup", price: 10.99, description: "Fresh spinach soup with meat and fish." },
+  { name: "Pumpkin Soup", category: "soup", price: 11.99, description: "Creamy pumpkin soup with traditional spices." },
 
   // Meat & Grilled
   { name: "Suya", category: "meat", price: 8.99, description: "Spicy grilled meat skewers, seasoned with a special blend of spices." },
@@ -51,6 +65,15 @@ const menuItems = [
   { name: "Grilled Turkey", category: "meat", price: 14.99, description: "Tender turkey breast marinated and grilled with herbs." },
   { name: "Peppered Beef", category: "meat", price: 11.99, description: "Tender beef cooked in spicy pepper sauce." },
   { name: "Grilled Tilapia", category: "meat", price: 13.49, description: "Fresh tilapia fish grilled with lemon and herbs." },
+  { name: "Grilled Catfish", category: "meat", price: 14.99, description: "Fresh catfish grilled with African spices." },
+  { name: "Grilled Salmon", category: "meat", price: 16.99, description: "Premium salmon grilled with herbs and lemon." },
+  { name: "Grilled Mackerel", category: "meat", price: 12.99, description: "Fresh mackerel grilled with traditional spices." },
+  { name: "Grilled Shrimp", category: "meat", price: 15.99, description: "Large shrimp grilled with garlic and herbs." },
+  { name: "Grilled Lobster", category: "meat", price: 24.99, description: "Fresh lobster grilled with butter and spices." },
+  { name: "Grilled Crab", category: "meat", price: 18.99, description: "Fresh crab grilled with garlic and herbs." },
+  { name: "Grilled Octopus", category: "meat", price: 16.99, description: "Tender octopus grilled with Mediterranean spices." },
+  { name: "Grilled Squid", category: "meat", price: 14.99, description: "Fresh squid grilled with herbs and spices." },
+  { name: "Grilled Scallops", category: "meat", price: 17.99, description: "Fresh scallops grilled with butter and herbs." },
 
   // Sides & Snacks
   { name: "Akara", category: "sides", price: 6.99, description: "Deep-fried bean cakes, crispy on the outside and soft on the inside." },
@@ -60,12 +83,66 @@ const menuItems = [
   { name: "Buns", category: "sides", price: 4.99, description: "Soft, sweet bread rolls perfect for breakfast or snacks." },
   { name: "Chin Chin", category: "sides", price: 6.99, description: "Crispy fried pastry snacks, sweet and crunchy." },
   { name: "Boli", category: "sides", price: 7.99, description: "Roasted plantain served with spicy pepper sauce." },
+  { name: "Moi Moi", category: "sides", price: 7.99, description: "Steamed bean pudding with vegetables and spices." },
+  { name: "Gari", category: "sides", price: 5.99, description: "Cassava flakes served with soup or stew." },
+  { name: "Fufu", category: "sides", price: 6.99, description: "Traditional starchy side dish made from cassava or plantain." },
+  { name: "Eba", category: "sides", price: 5.99, description: "Garri-based side dish perfect with soups." },
+  { name: "Pounded Yam", category: "sides", price: 7.99, description: "Traditional Nigerian side dish made from pounded yam." },
+  { name: "Plantain Chips", category: "sides", price: 5.99, description: "Crispy plantain chips seasoned with spices." },
+  { name: "Sweet Potato Fries", category: "sides", price: 6.99, description: "Crispy sweet potato fries with herbs." },
+  { name: "Cassava Fries", category: "sides", price: 5.99, description: "Crispy cassava fries seasoned with spices." },
+  { name: "Yam Fries", category: "sides", price: 6.99, description: "Crispy yam fries with traditional spices." },
+  { name: "Fried Yam", category: "sides", price: 7.99, description: "Fried yam slices with spicy pepper sauce." },
+  { name: "Boiled Yam", category: "sides", price: 6.99, description: "Boiled yam served with palm oil sauce." },
+  { name: "Roasted Plantain", category: "sides", price: 5.99, description: "Roasted plantain with spicy sauce." },
+  { name: "Plantain Fritters", category: "sides", price: 6.99, description: "Sweet plantain fritters with spices." },
+  { name: "Coconut Rice Balls", category: "sides", price: 7.99, description: "Rice balls made with coconut milk." },
 
   // Beverages
   { name: "Fresh Coconut Water", category: "beverages", price: 4.99, description: "Refreshing natural coconut water straight from the shell." },
   { name: "Tiger Nut Drink", category: "beverages", price: 5.99, description: "Creamy and nutritious drink made from tiger nuts." },
   { name: "Zobo", category: "beverages", price: 4.99, description: "Refreshing hibiscus drink with ginger and spices." },
-  { name: "Fresh Orange Juice", category: "beverages", price: 3.99, description: "Freshly squeezed orange juice, pure and natural." }
+  { name: "Fresh Orange Juice", category: "beverages", price: 3.99, description: "Freshly squeezed orange juice, pure and natural." },
+  { name: "Chapman", category: "beverages", price: 5.99, description: "Popular Nigerian cocktail with fruit juices and soda." },
+  { name: "Fresh Lime Juice", category: "beverages", price: 4.49, description: "Refreshing lime juice with mint and sugar." },
+  { name: "Ginger Drink", category: "beverages", price: 4.99, description: "Spicy and refreshing ginger-based drink." },
+  { name: "Fresh Pineapple Juice", category: "beverages", price: 4.99, description: "Sweet and tangy pineapple juice." },
+  { name: "Fresh Mango Juice", category: "beverages", price: 4.99, description: "Sweet and refreshing mango juice." },
+  { name: "Fresh Watermelon Juice", category: "beverages", price: 4.49, description: "Refreshing watermelon juice." },
+  { name: "Fresh Guava Juice", category: "beverages", price: 4.99, description: "Sweet and aromatic guava juice." },
+  { name: "Fresh Papaya Juice", category: "beverages", price: 4.99, description: "Sweet and tropical papaya juice." },
+  { name: "Fresh Passion Fruit Juice", category: "beverages", price: 5.99, description: "Tart and refreshing passion fruit juice." },
+  { name: "Fresh Grape Juice", category: "beverages", price: 4.99, description: "Sweet and refreshing grape juice." },
+  { name: "Fresh Apple Juice", category: "beverages", price: 4.49, description: "Crisp and refreshing apple juice." },
+  { name: "Fresh Carrot Juice", category: "beverages", price: 4.99, description: "Healthy and refreshing carrot juice." },
+  { name: "Fresh Beetroot Juice", category: "beverages", price: 5.99, description: "Nutritious and refreshing beetroot juice." },
+  { name: "Fresh Cucumber Juice", category: "beverages", price: 4.49, description: "Cooling and refreshing cucumber juice." },
+  { name: "Fresh Lemonade", category: "beverages", price: 3.99, description: "Classic lemonade with mint." },
+  { name: "Fresh Limeade", category: "beverages", price: 3.99, description: "Refreshing limeade with herbs." },
+  { name: "Fresh Mint Tea", category: "beverages", price: 3.99, description: "Refreshing mint tea, hot or cold." },
+  { name: "Fresh Hibiscus Tea", category: "beverages", price: 3.99, description: "Refreshing hibiscus tea with spices." },
+
+  // Desserts
+  { name: "Chin Chin", category: "desserts", price: 6.99, description: "Sweet crispy pastry snacks, perfect for dessert." },
+  { name: "Puff Puff", category: "desserts", price: 5.99, description: "Sweet deep-fried dough balls dusted with sugar." },
+  { name: "Buns", category: "desserts", price: 4.99, description: "Soft, sweet bread rolls perfect for dessert." },
+  { name: "Fried Plantain", category: "desserts", price: 4.99, description: "Sweet fried plantain slices, caramelized to perfection." },
+  { name: "Coconut Candy", category: "desserts", price: 7.99, description: "Sweet coconut-based candy with traditional flavors." },
+  { name: "Peanut Brittle", category: "desserts", price: 6.99, description: "Crunchy peanut candy with caramel coating." },
+  { name: "Buns with Jam", category: "desserts", price: 5.99, description: "Soft buns filled with sweet fruit jam." },
+  { name: "Sweet Plantain", category: "desserts", price: 5.99, description: "Caramelized plantain with honey and cinnamon." },
+  { name: "Coconut Balls", category: "desserts", price: 7.99, description: "Sweet coconut balls rolled in sugar and spices." },
+  { name: "Peanut Cookies", category: "desserts", price: 6.99, description: "Crunchy peanut cookies with traditional spices." },
+  { name: "Sweet Bread", category: "desserts", price: 4.99, description: "Soft, sweet bread perfect for dessert." },
+  { name: "Honey Buns", category: "desserts", price: 5.99, description: "Sweet buns glazed with honey and spices." },
+  { name: "Coconut Cake", category: "desserts", price: 8.99, description: "Moist coconut cake with traditional flavors." },
+  { name: "Peanut Cake", category: "desserts", price: 7.99, description: "Rich peanut cake with caramel frosting." },
+  { name: "Sweet Fritters", category: "desserts", price: 6.99, description: "Sweet deep-fried fritters dusted with sugar." },
+  { name: "Coconut Fudge", category: "desserts", price: 8.99, description: "Creamy coconut fudge with traditional spices." },
+  { name: "Peanut Fudge", category: "desserts", price: 7.99, description: "Rich peanut fudge with caramel swirls." },
+  { name: "Sweet Pancakes", category: "desserts", price: 6.99, description: "Fluffy pancakes with honey and spices." },
+  { name: "Coconut Pancakes", category: "desserts", price: 7.99, description: "Pancakes made with coconut milk and spices." },
+  { name: "Peanut Pancakes", category: "desserts", price: 6.99, description: "Pancakes with crushed peanuts and honey." }
 ];
 
 if (searchBtn && searchModal) {
@@ -372,6 +449,10 @@ function addToCartFromSearch(name, price) {
       'Okra Soup': 'src/assets/egusi.webp', // Using egusi as placeholder
       'Bitterleaf Soup': 'src/assets/egusi.webp', // Using egusi as placeholder
       'Ogbono Soup': 'src/assets/egusi.webp', // Using egusi as placeholder
+      'Vegetable Soup': 'src/assets/egusi.webp',
+      'Fish Stew': 'src/assets/egusi.webp',
+      'Goat Meat Soup': 'src/assets/egusi.webp',
+      'Chicken Stew': 'src/assets/egusi.webp',
 
       // Meat & Grilled
       'Suya': 'src/assets/suya.jpeg',
@@ -380,6 +461,11 @@ function addToCartFromSearch(name, price) {
       'Asun': 'src/assets/suya.jpeg', // Using suya as placeholder
       'Grilled Lamb': 'src/assets/chiken.jpeg', // Using chicken as placeholder
       'Peppered Snail': 'src/assets/suya.jpeg', // Using suya as placeholder
+      'Grilled Prawns': 'src/assets/grilled fish.jpeg',
+      'Fried Fish': 'src/assets/grilled fish.jpeg',
+      'Grilled Turkey': 'src/assets/chiken.jpeg',
+      'Peppered Beef': 'src/assets/suya.jpeg',
+      'Grilled Tilapia': 'src/assets/grilled fish.jpeg',
 
       // Sides & Snacks
       'Akara': 'src/assets/akara.jpeg',
@@ -389,12 +475,39 @@ function addToCartFromSearch(name, price) {
       'Buns': 'src/assets/naan bread.jpeg', // Using naan as placeholder
       'Chin Chin': 'src/assets/akara.jpeg', // Using akara as placeholder
       'Boli': 'src/assets/plantain.jpeg', // Using plantain as placeholder
+      'Moi Moi': 'src/assets/akara.jpeg',
+      'Gari': 'src/assets/akara.jpeg',
+      'Fufu': 'src/assets/akara.jpeg',
+      'Eba': 'src/assets/akara.jpeg',
+      'Pounded Yam': 'src/assets/akara.jpeg',
 
       // Beverages
       'Fresh Coconut Water': 'src/assets/jellof.webp', // Using jollof as placeholder
       'Tiger Nut Drink': 'src/assets/jellof.webp', // Using jollof as placeholder
       'Zobo': 'src/assets/jellof.webp', // Using jollof as placeholder
-      'Fresh Orange Juice': 'src/assets/jellof.webp' // Using jollof as placeholder
+      'Fresh Orange Juice': 'src/assets/jellof.webp', // Using jollof as placeholder
+      'Chapman': 'src/assets/jellof.webp',
+      'Fresh Lime Juice': 'src/assets/jellof.webp',
+      'Ginger Drink': 'src/assets/jellof.webp',
+      'Fresh Pineapple Juice': 'src/assets/jellof.webp',
+
+      // Desserts
+      'Coconut Candy': 'src/assets/akara.jpeg',
+      'Peanut Brittle': 'src/assets/akara.jpeg',
+      'Buns with Jam': 'src/assets/naan bread.jpeg',
+      'Sweet Plantain': 'src/assets/plantain.jpeg',
+      'Coconut Balls': 'src/assets/akara.jpeg',
+      'Peanut Cookies': 'src/assets/akara.jpeg',
+      'Sweet Bread': 'src/assets/naan bread.jpeg',
+      'Honey Buns': 'src/assets/naan bread.jpeg',
+      'Coconut Cake': 'src/assets/akara.jpeg',
+      'Peanut Cake': 'src/assets/akara.jpeg',
+      'Sweet Fritters': 'src/assets/akara.jpeg',
+      'Coconut Fudge': 'src/assets/akara.jpeg',
+      'Peanut Fudge': 'src/assets/akara.jpeg',
+      'Sweet Pancakes': 'src/assets/akara.jpeg',
+      'Coconut Pancakes': 'src/assets/akara.jpeg',
+      'Peanut Pancakes': 'src/assets/akara.jpeg'
     };
 
     const imagePath = imageMap[name] || 'src/assets/jellof.webp'; // fallback image
@@ -609,6 +722,7 @@ function completeOrder() {
 // 🏷️ Category Filter Functionality
 const categoryFilters = document.querySelectorAll('.category-filter');
 const menuItemsElements = document.querySelectorAll('.menu-item');
+const sectionHeadings = document.querySelectorAll('.section-heading');
 
 categoryFilters.forEach(filter => {
   filter.addEventListener('click', () => {
@@ -620,8 +734,26 @@ categoryFilters.forEach(filter => {
     filter.classList.add('active', 'bg-yellow-500', 'text-white');
     filter.classList.remove('bg-gray-200', 'text-gray-700');
 
-    // Filter menu items
+    // Filter menu items and section headings
     const category = filter.dataset.category;
+
+    // Handle section headings visibility
+    sectionHeadings.forEach(heading => {
+      if (category === 'all') {
+        // Hide all section headings when "All Dishes" is selected
+        heading.classList.add('hidden');
+      } else {
+        // Show only the relevant section heading
+        const headingCategory = heading.classList.contains(`${category}-section-heading`);
+        if (headingCategory) {
+          heading.classList.remove('hidden');
+        } else {
+          heading.classList.add('hidden');
+        }
+      }
+    });
+
+    // Filter menu items
     menuItemsElements.forEach(item => {
       if (category === 'all' || item.dataset.category === category) {
         item.style.display = 'block';

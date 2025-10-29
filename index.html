@@ -160,11 +160,26 @@
           data-category="beverages">
           Beverages
         </button>
+        <button class="category-filter bg-gray-200 text-gray-700 px-6 py-2 rounded-full hover:bg-gray-300 transition"
+          data-category="desserts">
+          Desserts
+        </button>
       </div>
     </section>
 
+
+
     <!-- Menu Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Rice Dishes Section -->
+      <div class="col-span-full mb-8 mt-12 section-heading rice-section-heading hidden">
+        <h2 class="text-3xl font-bold text-center mb-4 text-gray-800">🍚 Rice Dishes</h2>
+        <p class="text-center text-gray-600 mb-6 max-w-2xl mx-auto">
+          Discover our authentic West African rice dishes, from traditional Jollof to fragrant basmati rice,
+          each prepared with authentic spices and traditional cooking methods.
+        </p>
+      </div>
+
       <!-- Rice Dishes -->
       <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
         data-category="rice">
@@ -182,10 +197,194 @@
         </div>
       </div>
 
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="rice">
+        <img src="src/assets/coconut jollof rice.jpeg" alt="Coconut Jollof" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Coconut Jollof</h3>
+          <p class="text-gray-700 mb-3">Jollof rice cooked with coconut milk for extra richness.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦13,990</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Coconut Jollof" data-price="13.99" data-image="src/assets/jellof.webp">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="rice">
+        <img src="src/assets/basmati rice.jpeg" alt="Basmati Rice" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Basmati Rice</h3>
+          <p class="text-gray-700 mb-3">Fragrant long-grain basmati rice, perfectly cooked.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦9,990</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Basmati Rice" data-price="9.99" data-image="src/assets/jellof.webp">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="rice">
+        <img src="src/assets/fried rice.jpeg" alt="Fried Rice" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Fried Rice</h3>
+          <p class="text-gray-700 mb-3">Colorful rice stir-fried with vegetables, eggs, and choice of protein.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦10,990</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Fried Rice" data-price="10.99" data-image="src/assets/jellof.webp">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- More Rice Dishes -->
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="rice">
+        <img src="src/assets/ofada rice.jpeg" alt="Ofada Rice" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Ofada Rice</h3>
+          <p class="text-gray-700 mb-3">Local Nigerian rice served with spicy palm oil sauce and assorted meat.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦13,990</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Ofada Rice" data-price="13.99" data-image="src/assets/jellof.webp">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="rice">
+        <img src="src/assets/rice and stew.jpeg" alt="Rice and Stew" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Rice and Stew</h3>
+          <p class="text-gray-700 mb-3">White rice served with rich tomato-based stew and choice of meat.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦9,990</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Rice and Stew" data-price="9.99" data-image="src/assets/jellof.webp">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="rice">
+        <img src="src/assets/wild rice.jpeg" alt="Wild Rice" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Wild Rice</h3>
+          <p class="text-gray-700 mb-3">Nutty wild rice with vegetables and herbs.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦11,990</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Wild Rice" data-price="11.99" data-image="src/assets/jellof.webp">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="rice">
+        <img src="src/assets/rice pilaf.jpeg" alt="Rice Pilaf" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Rice Pilaf</h3>
+          <p class="text-gray-700 mb-3">Aromatic rice pilaf with spices and vegetables.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦10,990</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Rice Pilaf" data-price="10.99" data-image="src/assets/jellof.webp">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="rice">
+        <img src="src/assets/jellof.webp" alt="Red Rice" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Red Rice</h3>
+          <p class="text-gray-700 mb-3">Traditional red rice cooked with palm oil and spices.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦12,990</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Red Rice" data-price="12.99" data-image="src/assets/jellof.webp">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="rice">
+        <img src="src/assets/jellof.webp" alt="Yellow Rice" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Yellow Rice</h3>
+          <p class="text-gray-700 mb-3">Golden yellow rice with turmeric and spices.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦11,490</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Yellow Rice" data-price="11.49" data-image="src/assets/jellof.webp">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="rice">
+        <img src="src/assets/jellof.webp" alt="Rice and Beans" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Rice and Beans</h3>
+          <p class="text-gray-700 mb-3">Nutritious combination of rice and beans cooked together.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦8,990</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Rice and Beans" data-price="8.99" data-image="src/assets/jellof.webp">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="rice">
+        <img src="src/assets/jellof.webp" alt="Rice Porridge" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Rice Porridge</h3>
+          <p class="text-gray-700 mb-3">Creamy rice porridge, perfect for breakfast.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦7,990</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Rice Porridge" data-price="7.99" data-image="src/assets/jellof.webp">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Soups & Stews Section -->
+      <div class="col-span-full mb-8 mt-12 section-heading soup-section-heading hidden">
+        <h2 class="text-3xl font-bold text-center mb-4 text-gray-800">🍲 Soups & Stews</h2>
+        <p class="text-center text-gray-600 mb-6 max-w-2xl mx-auto">
+          Warm your soul with our rich and hearty West African soups and stews,
+          made with traditional ingredients and authentic spices.
+        </p>
+      </div>
+
       <!-- Soups & Stews -->
       <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
         data-category="soup">
-        <img src="src/assets/egusi.webp" alt="Egusi Soup" class="w-full h-48 object-cover">
+        <img src="src/assets/egusi soup.jpeg" alt="Egusi Soup" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-xl font-semibold mb-2">Egusi Soup</h3>
           <p class="text-gray-700 mb-3">A rich and hearty soup made with melon seeds, vegetables, and meat or fish.</p>
@@ -217,7 +416,7 @@
 
       <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
         data-category="soup">
-        <img src="src/assets/banga.webp" alt="Banga Soup" class="w-full h-48 object-cover">
+        <img src="src/assets/banga soup.jpeg" alt="Banga Soup" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-xl font-semibold mb-2">Banga Soup</h3>
           <p class="text-gray-700 mb-3">A rich palm nut soup, often served with starch or fufu.</p>
@@ -229,6 +428,15 @@
             </button>
           </div>
         </div>
+      </div>
+
+      <!-- Meat & Grilled Section -->
+      <div class="col-span-full mb-8 mt-12 section-heading meat-section-heading hidden">
+        <h2 class="text-3xl font-bold text-center mb-4 text-gray-800">🥩 Meat & Grilled</h2>
+        <p class="text-center text-gray-600 mb-6 max-w-2xl mx-auto">
+          Savor our perfectly grilled meats and seafood, marinated in authentic West African spices
+          and cooked to perfection for an unforgettable dining experience.
+        </p>
       </div>
 
       <!-- Meat & Grilled -->
@@ -278,6 +486,14 @@
         </div>
       </div>
 
+      <!-- Sides & Snacks Section -->
+      <div class="col-span-full mb-8 mt-12 section-heading sides-section-heading hidden">
+        <h2 class="text-3xl font-bold text-center mb-4 text-gray-800">🍞 Sides & Snacks</h2>
+        <p class="text-center text-gray-600 mb-6 max-w-2xl mx-auto">
+          Complete your meal with our traditional West African sides and snacks,
+          from crispy akara to soft naan bread, perfect for dipping and sharing.
+        </p>
+      </div>
 
       <!-- Sides & Snacks -->
       <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
@@ -331,7 +547,7 @@
       <!-- Additional Rice Dishes -->
       <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
         data-category="rice">
-        <img src="src/assets/jellof.webp" alt="Coconut Rice" class="w-full h-48 object-cover">
+        <img src="src/assets/coconut rice.jpeg" alt="Coconut Rice" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-xl font-semibold mb-2">Coconut Rice</h3>
           <p class="text-gray-700 mb-3">Fragrant basmati rice cooked in coconut milk with aromatic spices.</p>
@@ -345,26 +561,12 @@
         </div>
       </div>
 
-      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
-        data-category="rice">
-        <img src="src/assets/jellof.webp" alt="Fried Rice" class="w-full h-48 object-cover">
-        <div class="p-4">
-          <h3 class="text-xl font-semibold mb-2">Fried Rice</h3>
-          <p class="text-gray-700 mb-3">Colorful rice stir-fried with vegetables, eggs, and choice of protein.</p>
-          <div class="flex justify-between items-center">
-            <span class="text-lg font-bold text-yellow-500">₦10,990</span>
-            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
-              data-name="Fried Rice" data-price="10.99" data-image="src/assets/jellof.webp">
-              Add to Cart
-            </button>
-          </div>
-        </div>
-      </div>
+
 
       <!-- Additional Soups -->
       <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
         data-category="soup">
-        <img src="src/assets/egusi.webp" alt="Okra Soup" class="w-full h-48 object-cover">
+        <img src="src/assets/okra soup.jpeg" alt="Okra Soup" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-xl font-semibold mb-2">Okra Soup</h3>
           <p class="text-gray-700 mb-3">Traditional soup made with fresh okra, meat, and fish.</p>
@@ -380,7 +582,7 @@
 
       <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
         data-category="soup">
-        <img src="src/assets/egusi.webp" alt="Bitterleaf Soup" class="w-full h-48 object-cover">
+        <img src="src/assets/bitter leaf.jpeg" alt="Bitterleaf Soup" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-xl font-semibold mb-2">Bitterleaf Soup</h3>
           <p class="text-gray-700 mb-3">Nutritious soup made with bitterleaf vegetables and assorted meat.</p>
@@ -388,6 +590,151 @@
             <span class="text-lg font-bold text-yellow-500">₦13,990</span>
             <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
               data-name="Bitterleaf Soup" data-price="13.99" data-image="src/assets/egusi.webp">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- More Soup Dishes -->
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="soup">
+        <img src="src/assets/ogbono soup.jpeg" alt="Ogbono Soup" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Ogbono Soup</h3>
+          <p class="text-gray-700 mb-3">Thick soup made with ogbono seeds, vegetables, and meat.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦14,990</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Ogbono Soup" data-price="14.99" data-image="src/assets/egusi.webp">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="soup">
+        <img src="src/assets/vegitable .jpeg" alt="Vegetable Soup" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Vegetable Soup</h3>
+          <p class="text-gray-700 mb-3">Fresh vegetables cooked in flavorful broth with choice of protein.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦10,990</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Vegetable Soup" data-price="10.99" data-image="src/assets/egusi.webp">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="soup">
+        <img src="src/assets/fish stew.jpeg" alt="Fish Stew" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Fish Stew</h3>
+          <p class="text-gray-700 mb-3">Rich tomato-based stew with fresh fish and vegetables.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦13,490</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Fish Stew" data-price="13.49" data-image="src/assets/egusi.webp">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="soup">
+        <img src="src/assets/goat meat stew.jpeg" alt="Goat Meat Soup" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Goat Meat Soup</h3>
+          <p class="text-gray-700 mb-3">Hearty soup made with tender goat meat and traditional spices.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦14,990</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Goat Meat Soup" data-price="14.99" data-image="src/assets/egusi.webp">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="soup">
+        <img src="src/assets/chicken stew.jpeg" alt="Chicken Stew" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Chicken Stew</h3>
+          <p class="text-gray-700 mb-3">Flavorful stew made with chicken, tomatoes, and aromatic spices.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦12,990</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Chicken Stew" data-price="12.99" data-image="src/assets/egusi.webp">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="soup">
+        <img src="src/assets/beef stew.jpeg" alt="Beef Stew" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Beef Stew</h3>
+          <p class="text-gray-700 mb-3">Rich beef stew with vegetables and traditional spices.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦13,990</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Beef Stew" data-price="13.99" data-image="src/assets/egusi.webp">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="soup">
+        <img src="src/assets/lamb stew.jpeg" alt="Lamb Stew" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Lamb Stew</h3>
+          <p class="text-gray-700 mb-3">Tender lamb stew with aromatic herbs and spices.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦14,990</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Lamb Stew" data-price="14.99" data-image="src/assets/egusi.webp">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="soup">
+        <img src="src/assets/palm oil soup.jpeg" alt="Palm Oil Soup" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Palm Oil Soup</h3>
+          <p class="text-gray-700 mb-3">Traditional soup made with palm oil and assorted meat.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦12,990</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Palm Oil Soup" data-price="12.99" data-image="src/assets/egusi.webp">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="soup">
+        <img src="src/assets/grandnut soup.jpeg" alt="Groundnut Soup" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Groundnut Soup</h3>
+          <p class="text-gray-700 mb-3">Rich soup made with groundnut paste and vegetables.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦13,990</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Groundnut Soup" data-price="13.99" data-image="src/assets/egusi.webp">
               Add to Cart
             </button>
           </div>
@@ -460,6 +807,15 @@
         </div>
       </div>
 
+      <!-- Beverages Section -->
+      <div class="col-span-full mb-8 mt-12 section-heading beverages-section-heading hidden">
+        <h2 class="text-3xl font-bold text-center mb-4 text-gray-800">🥤 Beverages</h2>
+        <p class="text-center text-gray-600 mb-6 max-w-2xl mx-auto">
+          Quench your thirst with our refreshing selection of fresh juices, traditional drinks,
+          and authentic West African beverages made with natural ingredients.
+        </p>
+      </div>
+
       <!-- Beverages -->
       <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
         data-category="beverages">
@@ -487,6 +843,179 @@
             <span class="text-lg font-bold text-yellow-500">₦5,990</span>
             <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
               data-name="Tiger Nut Drink" data-price="5.99" data-image="src/assets/jellof.webp">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Desserts Section -->
+      <div class="col-span-full mb-8 mt-12 section-heading desserts-section-heading hidden">
+        <h2 class="text-3xl font-bold text-center mb-4 text-gray-800">🍰 Desserts</h2>
+        <p class="text-center text-gray-600 mb-6 max-w-2xl mx-auto">
+          End your meal on a sweet note with our traditional West African desserts,
+          from coconut candy to peanut brittle, made with authentic flavors and love.
+        </p>
+      </div>
+
+      <!-- Desserts -->
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="desserts">
+        <img src="src/assets/akara.jpeg" alt="Coconut Candy" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Coconut Candy</h3>
+          <p class="text-gray-700 mb-3">Sweet coconut-based candy with traditional flavors.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦7,990</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Coconut Candy" data-price="7.99" data-image="src/assets/akara.jpeg">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="desserts">
+        <img src="src/assets/akara.jpeg" alt="Peanut Brittle" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Peanut Brittle</h3>
+          <p class="text-gray-700 mb-3">Crunchy peanut candy with caramel coating.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦6,990</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Peanut Brittle" data-price="6.99" data-image="src/assets/akara.jpeg">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="desserts">
+        <img src="src/assets/naan bread.jpeg" alt="Buns with Jam" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Buns with Jam</h3>
+          <p class="text-gray-700 mb-3">Soft buns filled with sweet fruit jam.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦5,990</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Buns with Jam" data-price="5.99" data-image="src/assets/naan bread.jpeg">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="desserts">
+        <img src="src/assets/plantain.jpeg" alt="Sweet Plantain" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Sweet Plantain</h3>
+          <p class="text-gray-700 mb-3">Caramelized plantain with honey and cinnamon.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦5,990</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Sweet Plantain" data-price="5.99" data-image="src/assets/plantain.jpeg">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="desserts">
+        <img src="src/assets/akara.jpeg" alt="Coconut Cake" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Coconut Cake</h3>
+          <p class="text-gray-700 mb-3">Moist coconut cake with traditional flavors.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦8,990</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Coconut Cake" data-price="8.99" data-image="src/assets/akara.jpeg">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="desserts">
+        <img src="src/assets/akara.jpeg" alt="Peanut Cake" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Peanut Cake</h3>
+          <p class="text-gray-700 mb-3">Rich peanut cake with caramel frosting.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦7,990</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Peanut Cake" data-price="7.99" data-image="src/assets/akara.jpeg">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Additional Beverages -->
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="beverages">
+        <img src="src/assets/jellof.webp" alt="Fresh Mango Juice" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Fresh Mango Juice</h3>
+          <p class="text-gray-700 mb-3">Sweet and refreshing mango juice.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦4,990</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Fresh Mango Juice" data-price="4.99" data-image="src/assets/jellof.webp">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="beverages">
+        <img src="src/assets/jellof.webp" alt="Fresh Watermelon Juice" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Fresh Watermelon Juice</h3>
+          <p class="text-gray-700 mb-3">Refreshing watermelon juice.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦4,490</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Fresh Watermelon Juice" data-price="4.49" data-image="src/assets/jellof.webp">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Meat & Seafood -->
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="meat">
+        <img src="src/assets/grilled fish.jpeg" alt="Grilled Salmon" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Grilled Salmon</h3>
+          <p class="text-gray-700 mb-3">Premium salmon grilled with herbs and lemon.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦16,990</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Grilled Salmon" data-price="16.99" data-image="src/assets/grilled fish.jpeg">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-item bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        data-category="meat">
+        <img src="src/assets/grilled fish.jpeg" alt="Grilled Lobster" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold mb-2">Grilled Lobster</h3>
+          <p class="text-gray-700 mb-3">Fresh lobster grilled with butter and spices.</p>
+          <div class="flex justify-between items-center">
+            <span class="text-lg font-bold text-yellow-500">₦24,990</span>
+            <button class="add-to-cart bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition"
+              data-name="Grilled Lobster" data-price="24.99" data-image="src/assets/grilled fish.jpeg">
               Add to Cart
             </button>
           </div>
