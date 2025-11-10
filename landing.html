@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spice Republic - Authentic West African Cuisine</title>
+    <link rel="icon" type="image/svg+xml" href="src/assets/favicon.svg">
+    <link rel="stylesheet" href="src/style.css" />
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-delay-200 {
+            animation-delay: 0.2s;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        .animate-delay-400 {
+            animation-delay: 0.4s;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        .animate-delay-600 {
+            animation-delay: 0.6s;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        .animate-delay-800 {
+            animation-delay: 0.8s;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        .bg-pattern {
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(251, 191, 36, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(234, 88, 12, 0.05) 0%, transparent 50%);
+        }
+
+        .glass-effect {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #fbbf24, #f97316, #fbbf24);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-shift 3s ease infinite;
+        }
+
+        @keyframes gradient-shift {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-900 min-h-screen overflow-x-hidden">
+    <!-- Background Pattern -->
+    <div class="fixed inset-0 bg-pattern"></div>
+
+    <!-- Gradient Overlay -->
+    <div class="fixed inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="relative z-20 w-full px-6 py-4 glass-effect">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3">
+                <img src="src/assets/logo-simple.svg" alt="Spice Republic Logo" class="h-10 w-auto">
+            </a>
+            <div class="hidden md:flex items-center space-x-6">
+
+                <a href="sign-up.html"
+                    class="px-4 py-2 bg-gradient-to-r from-yellow-500 to-orange-500 text-white rounded-full hover:from-yellow-400 hover:to-orange-400 transition-all duration-200 font-medium">
+                    Sign Up
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="relative min-h-screen flex flex-col items-center justify-center px-4 py-20 z-10">
+        <!-- Logo -->
+        <div class="mb-8 animate-fade-in animate-float">
+            <img src="src/assets/logo-simple.svg" alt="Spice Republic Logo" class="h-24 w-auto mx-auto drop-shadow-2xl">
+        </div>
+
+        <!-- Main Content -->
+        <div class="text-center max-w-4xl mx-auto">
+            <!-- Main Heading -->
+            <h1
+                class="text-6xl md:text-7xl lg:text-8xl font-extrabold text-white mb-6 leading-tight animate-fade-in-up">
+                Welcome to
+                <span class="block mt-2 gradient-text">
+                    Spice Republic
+                </span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p
+                class="text-xl md:text-2xl text-gray-300 mb-4 font-light tracking-wide animate-fade-in-up animate-delay-200">
+                Experience the authentic taste of West African cuisine
+            </p>
+
+            <!-- Description -->
+            <p
+                class="text-base md:text-lg text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed animate-fade-in-up animate-delay-400">
+                From traditional Jollof rice to spicy Suya, we bring you the flavors of home with passion and
+                authenticity. Order now and taste the difference.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div
+                class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 animate-fade-in-up animate-delay-600">
+                <a href="index.html"
+                    class="group inline-flex items-center px-10 py-5 bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-lg font-semibold rounded-full shadow-2xl hover:shadow-yellow-500/50 transform hover:scale-105 transition-all duration-300 hover:from-yellow-400 hover:to-orange-400">
+                    <span>Get Started</span>
+                    <svg class="w-5 h-5 ml-3 transform group-hover:translate-x-1 transition-transform" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                </a>
+                <a href="sign-up.html"
+                    class="group inline-flex items-center px-10 py-5 glass-effect text-white text-lg font-semibold rounded-full border border-yellow-500/30 hover:border-yellow-400 hover:bg-yellow-500/10 transform hover:scale-105 transition-all duration-300">
+                    <span>Create Account</span>
+                    <svg class="w-5 h-5 ml-3 transform group-hover:rotate-12 transition-transform" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div
+            class="max-w-6xl mx-auto mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 px-4 animate-fade-in-up animate-delay-800">
+            <!-- Feature 1 -->
+            <div class="glass-effect rounded-2xl p-6 text-center hover:scale-105 transition-transform duration-300">
+                <div
+                    class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-white mb-2">Fresh Ingredients</h3>
+                <p class="text-gray-400 text-sm">Sourced daily from local markets for the freshest taste</p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="glass-effect rounded-2xl p-6 text-center hover:scale-105 transition-transform duration-300">
+                <div
+                    class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-white mb-2">Authentic Recipes</h3>
+                <p class="text-gray-400 text-sm">Traditional West African recipes passed down through generations</p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="glass-effect rounded-2xl p-6 text-center hover:scale-105 transition-transform duration-300">
+                <div
+                    class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold text-white mb-2">Fast Delivery</h3>
+                <p class="text-gray-400 text-sm">Quick and reliable delivery to your doorstep</p>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div
+            class="max-w-4xl mx-auto mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 px-4 animate-fade-in-up animate-delay-800">
+            <div class="text-center">
+                <div class="text-4xl font-bold text-yellow-400 mb-2">500+</div>
+                <div class="text-gray-400 text-sm">Happy Customers</div>
+            </div>
+            <div class="text-center">
+                <div class="text-4xl font-bold text-yellow-400 mb-2">100+</div>
+                <div class="text-gray-400 text-sm">Menu Items</div>
+            </div>
+            <div class="text-center">
+                <div class="text-4xl font-bold text-yellow-400 mb-2">4.9★</div>
+                <div class="text-gray-400 text-sm">Average Rating</div>
+            </div>
+            <div class="text-center">
+                <div class="text-4xl font-bold text-yellow-400 mb-2">24/7</div>
+                <div class="text-gray-400 text-sm">Available</div>
+            </div>
+        </div>
+
+        <!-- Popular Dishes Section -->
+        <div class="max-w-6xl mx-auto mt-32 px-4">
+            <div class="text-center mb-12 animate-fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Popular Dishes</h2>
+                <p class="text-gray-400 text-lg">Customer favorites you'll love</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-effect rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300">
+                    <div
+                        class="h-48 bg-gradient-to-br from-yellow-500/20 to-orange-500/20 flex items-center justify-center">
+                        <img src="src/assets/jellof.webp" alt="Jollof Rice"
+                            class="w-full h-full object-cover opacity-80"
+                            onerror="this.src='src/assets/coconut rice.jpeg'">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">Jollof Rice</h3>
+                        <p class="text-gray-400 text-sm mb-4">A flavorful one-pot dish made with rice, tomatoes, and
+                            spices</p>
+                        <a href="index.html" class="text-yellow-400 hover:text-yellow-300 text-sm font-medium">Order Now
+                            →</a>
+                    </div>
+                </div>
+                <div class="glass-effect rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300">
+                    <div
+                        class="h-48 bg-gradient-to-br from-yellow-500/20 to-orange-500/20 flex items-center justify-center">
+                        <img src="src/assets/suya 10.51.43 AM.jpeg" alt="Suya"
+                            class="w-full h-full object-cover opacity-80" onerror="this.src='src/assets/chiken.jpeg'">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">Suya</h3>
+                        <p class="text-gray-400 text-sm mb-4">Spicy grilled meat skewers, seasoned with special spices
+                        </p>
+                        <a href="index.html" class="text-yellow-400 hover:text-yellow-300 text-sm font-medium">Order Now
+                            →</a>
+                    </div>
+                </div>
+                <div class="glass-effect rounded-2xl overflow-hidden hover:scale-105 transition-transform duration-300">
+                    <div
+                        class="h-48 bg-gradient-to-br from-yellow-500/20 to-orange-500/20 flex items-center justify-center">
+                        <img src="src/assets/egusi soup.jpeg" alt="Egusi Soup"
+                            class="w-full h-full object-cover opacity-80"
+                            onerror="this.src='src/assets/pepper-soup.jpeg'">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">Egusi Soup</h3>
+                        <p class="text-gray-400 text-sm mb-4">Rich and hearty soup made with melon seeds and vegetables
+                        </p>
+                        <a href="index.html" class="text-yellow-400 hover:text-yellow-300 text-sm font-medium">Order Now
+                            →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- How It Works Section -->
+        <div class="max-w-6xl mx-auto mt-32 px-4">
+            <div class="text-center mb-12 animate-fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">How It Works</h2>
+                <p class="text-gray-400 text-lg">Get your favorite meals in 3 simple steps</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center glass-effect rounded-2xl p-8 hover:scale-105 transition-transform duration-300">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-bold text-white">
+                        1
+                    </div>
+                    <h3 class="text-2xl font-semibold text-white mb-4">Browse Menu</h3>
+                    <p class="text-gray-400">Explore our extensive menu of authentic West African dishes</p>
+                </div>
+                <div class="text-center glass-effect rounded-2xl p-8 hover:scale-105 transition-transform duration-300">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-bold text-white">
+                        2
+                    </div>
+                    <h3 class="text-2xl font-semibold text-white mb-4">Add to Cart</h3>
+                    <p class="text-gray-400">Select your favorite dishes and customize your order</p>
+                </div>
+                <div class="text-center glass-effect rounded-2xl p-8 hover:scale-105 transition-transform duration-300">
+                    <div
+                        class="w-20 h-20 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl font-bold text-white">
+                        3
+                    </div>
+                    <h3 class="text-2xl font-semibold text-white mb-4">Enjoy!</h3>
+                    <p class="text-gray-400">Receive your order and savor the authentic flavors</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials Section -->
+        <div class="max-w-6xl mx-auto mt-32 px-4">
+            <div class="text-center mb-12 animate-fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">What Our Customers Say</h2>
+                <p class="text-gray-400 text-lg">Real reviews from real customers</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-effect rounded-2xl p-6 hover:scale-105 transition-transform duration-300">
+                    <div class="flex items-center mb-4">
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full flex items-center justify-center text-white font-bold">
+                            A
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-white font-semibold">Amina O.</h4>
+                            <div class="flex text-yellow-400 text-sm">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">"The Jollof rice reminds me of home! Absolutely delicious and
+                        authentic."</p>
+                </div>
+                <div class="glass-effect rounded-2xl p-6 hover:scale-105 transition-transform duration-300">
+                    <div class="flex items-center mb-4">
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full flex items-center justify-center text-white font-bold">
+                            K
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-white font-semibold">Kwame T.</h4>
+                            <div class="flex text-yellow-400 text-sm">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">"Best Suya in town! Fast delivery and always fresh. Highly
+                        recommend!"</p>
+                </div>
+                <div class="glass-effect rounded-2xl p-6 hover:scale-105 transition-transform duration-300">
+                    <div class="flex items-center mb-4">
+                        <div
+                            class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full flex items-center justify-center text-white font-bold">
+                            C
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="text-white font-semibold">Chioma M.</h4>
+                            <div class="flex text-yellow-400 text-sm">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">"The Egusi soup is incredible! Perfect blend of flavors and spices."
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Special Offer Banner -->
+        <div class="max-w-4xl mx-auto mt-32 px-4">
+            <div class="glass-effect rounded-2xl p-8 md:p-12 text-center relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-r from-yellow-500/10 to-orange-500/10"></div>
+                <div class="relative z-10">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">🎉 Special Offer!</h2>
+                    <p class="text-xl text-gray-300 mb-6">Get 20% off your first order when you sign up today</p>
+                    <a href="sign-up.html"
+                        class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-semibold rounded-full hover:from-yellow-400 hover:to-orange-400 transform hover:scale-105 transition-all duration-300">
+                        Claim Offer Now
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Newsletter Section -->
+        <div class="max-w-2xl mx-auto mt-32 px-4">
+            <div class="glass-effect rounded-2xl p-8 text-center">
+                <h2 class="text-3xl font-bold text-white mb-4">Stay Updated</h2>
+                <p class="text-gray-400 mb-6">Subscribe to our newsletter for exclusive offers and new menu items</p>
+                <form class="flex flex-col sm:flex-row gap-3">
+                    <input type="email" placeholder="Enter your email"
+                        class="flex-1 px-6 py-3 bg-gray-800/50 border border-gray-700 rounded-full text-white placeholder-gray-500 focus:outline-none focus:border-yellow-500 transition-colors">
+                    <button type="submit"
+                        class="px-8 py-3 bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-semibold rounded-full hover:from-yellow-400 hover:to-orange-400 transition-all duration-300">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="max-w-4xl mx-auto mt-32 px-4 mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Frequently Asked Questions</h2>
+                <p class="text-gray-400 text-lg">Everything you need to know</p>
+            </div>
+            <div class="space-y-4">
+                <div class="glass-effect rounded-xl p-6">
+                    <h3 class="text-xl font-semibold text-white mb-2">What areas do you deliver to?</h3>
+                    <p class="text-gray-400">We currently deliver within the city limits. Check our delivery page for
+                        specific areas.</p>
+                </div>
+                <div class="glass-effect rounded-xl p-6">
+                    <h3 class="text-xl font-semibold text-white mb-2">How long does delivery take?</h3>
+                    <p class="text-gray-400">Standard delivery takes 30-45 minutes. Express delivery (15-20 minutes) is
+                        available for an additional fee.</p>
+                </div>
+                <div class="glass-effect rounded-xl p-6">
+                    <h3 class="text-xl font-semibold text-white mb-2">Do you offer vegetarian options?</h3>
+                    <p class="text-gray-400">Yes! We have a variety of vegetarian and vegan options available. Check our
+                        menu for details.</p>
+                </div>
+                <div class="glass-effect rounded-xl p-6">
+                    <h3 class="text-xl font-semibold text-white mb-2">Can I customize my order?</h3>
+                    <p class="text-gray-400">Absolutely! You can customize spice levels, add extras, or make special
+                        requests during checkout.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="relative z-20 w-full border-t border-gray-800/50 backdrop-blur-sm bg-gray-900/80 mt-20">
+        <div class="container mx-auto px-6 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <img src="src/assets/logo-simple.svg" alt="Logo" class="h-8 w-auto">
+                        <span class="text-white font-bold text-lg">Spice Republic</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">Authentic West African cuisine delivered to your door.</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html"
+                                class="text-gray-400 hover:text-yellow-400 transition-colors text-sm">Menu</a></li>
+                        <li><a href="about-us.html"
+                                class="text-gray-400 hover:text-yellow-400 transition-colors text-sm">About Us</a></li>
+                        <li><a href="contact-us.html"
+                                class="text-gray-400 hover:text-yellow-400 transition-colors text-sm">Contact</a></li>
+                        <li><a href="sign-in.html"
+                                class="text-gray-400 hover:text-yellow-400 transition-colors text-sm">Sign In</a></li>
+                    </ul>
+                </div>
+
+                <!-- Customer Service -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Customer Service</h4>
+                    <ul class="space-y-2">
+                        <li><a href="contact-us.html"
+                                class="text-gray-400 hover:text-yellow-400 transition-colors text-sm">Help Center</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors text-sm">Delivery
+                                Info</a></li>
+                        <li><a href="#"
+                                class="text-gray-400 hover:text-yellow-400 transition-colors text-sm">Returns</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors text-sm">Privacy
+                                Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Contact Us</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>📧 info@spicerepublic.com</li>
+                        <li>📞 (555) 123-4567</li>
+                        <li>📍 123 Spice Street, City</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2024 Spice Republic. All rights reserved.</p>
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

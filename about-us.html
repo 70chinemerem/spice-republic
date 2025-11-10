@@ -12,15 +12,28 @@
 <body class="bg-white text-gray-900 transition-colors duration-300">
     <!-- Navigation -->
     <nav class="bg-gray-900 text-white px-6 py-4 flex justify-between items-center sticky top-0 z-40">
+        <!-- Logo -->
         <a href="index.html" class="flex items-center space-x-3">
             <img src="src/assets/logo-simple.svg" alt="Spice Republic Logo" class="h-12 w-auto">
-            <h1 class="text-3xl font-bold tracking-wide text-yellow-500"></h1>
+            <h1 class="text-3xl font-bold tracking-wide text-yellow-500">Spice Republic</h1>
         </a>
+
+        <!-- Navigation Links -->
         <div class="flex items-center space-x-4">
-            <a href="menu.html" class="hover:text-yellow-400">Menu</a>
+            <a href="index.html" class="hover:text-yellow-400 transition">Menu</a>
             <a href="about-us.html"
                 class="bg-yellow-500 text-gray-900 px-3 py-1 rounded-lg hover:bg-yellow-400 transition">About</a>
-            <a href="contact-us.html" class="hover:text-yellow-400">Contact</a>
+            <a href="contact-us.html" class="hover:text-yellow-400 transition">Contact</a>
+            <!-- User Account -->
+            <div id="user-account" class="flex items-center space-x-2">
+                <a href="sign-in.html"
+                    class="bg-yellow-400 text-gray-900 px-3 py-1 rounded-lg hover:bg-yellow-300 transition"
+                    id="signup-link">Sign In</a>
+                <div id="user-menu" class="hidden items-center space-x-2">
+                    <span id="user-name" class="text-yellow-500"></span>
+                    <button id="logout-btn" class="text-gray-400 hover:text-yellow-500 transition">Logout</button>
+                </div>
+            </div>
         </div>
     </nav>
 
@@ -140,6 +153,14 @@
     <footer class="bg-gray-900 text-white text-center py-4 mt-12">
         <p class="text-sm">&copy; 2024 Spice Republic. All rights reserved.</p>
     </footer>
+
+    <script src="/src/main.js"></script>
+    <script>
+        // Initialize user session check on page load
+        if (typeof checkUserSession === 'function') {
+            checkUserSession();
+        }
+    </script>
 
 </body>
 

@@ -128,11 +128,20 @@
 
                 // Demo persistence
                 const users = JSON.parse(localStorage.getItem('users') || '[]');
+
+                // Check if email already exists
+                if (users.find(u => u.email.toLowerCase() === emailVal.toLowerCase())) {
+                    emailErr.textContent = 'Email already registered. Please sign in.';
+                    show(emailErr);
+                    return;
+                }
+
                 users.push({
                     name: nameInput.value.trim(),
-                    email: emailVal,
+                    email: emailVal.toLowerCase(),
                     // Do NOT store plaintext passwords in real apps
                     password: passwordInput.value,
+                    role: 'customer', // Default role for new users
                     createdAt: new Date().toISOString()
                 });
                 localStorage.setItem('users', JSON.stringify(users));

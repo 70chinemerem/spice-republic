@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Spice Republic</title>
+    <link rel="icon" type="image/svg+xml" href="src/assets/favicon.svg">
+    <link rel="stylesheet" href="src/style.css" />
+</head>
+
+<body class="bg-gray-50 text-gray-900">
+    <!-- Navigation -->
+    <nav class="bg-gray-900 text-white px-6 py-4 flex justify-between items-center sticky top-0 z-40">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center space-x-3">
+            <img src="src/assets/logo-simple.svg" alt="Spice Republic Logo" class="h-12 w-auto">
+            <h1 class="text-3xl font-bold tracking-wide text-yellow-500"></h1>
+        </a>
+
+        <!-- Navigation Items -->
+        <div class="flex items-center space-x-4">
+            <a href="index.html" class="text-yellow-500 hover:text-yellow-300 transition">View Site</a>
+
+            <button id="logout-btn" class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">
+                Logout
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8 max-w-7xl">
+        <!-- Welcome Section -->
+        <div class="bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg p-8 mb-8 text-white">
+            <h1 class="text-3xl font-bold mb-2">Admin Dashboard</h1>
+            <p class="text-yellow-100">Manage users, menu items, orders, and system settings</p>
+        </div>
+
+        <!-- Dashboard Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-600 text-sm">Total Users</p>
+                        <p class="text-3xl font-bold text-gray-800" id="total-users">0</p>
+                    </div>
+                    <div class="bg-blue-100 rounded-full p-4">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-600 text-sm">Total Orders</p>
+                        <p class="text-3xl font-bold text-gray-800" id="total-orders">0</p>
+                    </div>
+                    <div class="bg-green-100 rounded-full p-4">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-600 text-sm">Total Revenue</p>
+                        <p class="text-3xl font-bold text-gray-800" id="total-revenue">₦0</p>
+                    </div>
+                    <div class="bg-yellow-100 rounded-full p-4">
+                        <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-600 text-sm">Menu Items</p>
+                        <p class="text-3xl font-bold text-gray-800" id="total-menu-items">0</p>
+                    </div>
+                    <div class="bg-purple-100 rounded-full p-4">
+                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="bg-white rounded-lg shadow-md mb-6">
+            <div class="border-b border-gray-200">
+                <nav class="flex -mb-px overflow-x-auto">
+                    <button
+                        class="tab-btn active px-6 py-4 text-sm font-medium text-yellow-600 border-b-2 border-yellow-600 whitespace-nowrap"
+                        data-tab="orders">
+                        Orders
+                    </button>
+                    <button
+                        class="tab-btn px-6 py-4 text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 border-b-2 border-transparent whitespace-nowrap"
+                        data-tab="users">
+                        Users
+                    </button>
+                    <button
+                        class="tab-btn px-6 py-4 text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 border-b-2 border-transparent whitespace-nowrap"
+                        data-tab="menu">
+                        Menu Items
+                    </button>
+                    <button
+                        class="tab-btn px-6 py-4 text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 border-b-2 border-transparent whitespace-nowrap"
+                        data-tab="settings">
+                        Settings
+                    </button>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Tab Content -->
+        <!-- Orders Tab -->
+        <div id="orders-tab" class="tab-content">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold">Order Management</h2>
+                    <button id="refresh-orders"
+                        class="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition">
+                        Refresh
+                    </button>
+                </div>
+                <div id="orders-list" class="space-y-4">
+                    <!-- Orders will be populated here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Users Tab -->
+        <div id="users-tab" class="tab-content hidden">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold">User Management</h2>
+                    <button id="add-user-btn"
+                        class="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition">
+                        Add User
+                    </button>
+                </div>
+                <div id="users-list" class="space-y-4">
+                    <!-- Users will be populated here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Tab -->
+        <div id="menu-tab" class="tab-content hidden">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold">Menu Management</h2>
+                    <button id="add-menu-item-btn"
+                        class="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition">
+                        Add Menu Item
+                    </button>
+                </div>
+                <div id="menu-items-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Menu items will be populated here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Tab -->
+        <div id="settings-tab" class="tab-content hidden">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-bold mb-6">System Settings</h2>
+                <div class="space-y-6 max-w-2xl">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Restaurant Information</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Restaurant Name</label>
+                                <input type="text" id="restaurant-name" value="Spice Republic"
+                                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Contact Email</label>
+                                <input type="email" id="restaurant-email"
+                                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Phone Number</label>
+                                <input type="tel" id="restaurant-phone"
+                                    class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Danger Zone</h3>
+                        <div class="border border-red-200 rounded-lg p-4 bg-red-50">
+                            <button id="clear-all-data"
+                                class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">
+                                Clear All Data
+                            </button>
+                            <p class="text-sm text-red-700 mt-2">This will delete all users, orders, and menu items.
+                                This action cannot be undone.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <!-- Add/Edit User Modal -->
+    <div id="user-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-lg shadow-xl w-full max-w-md">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-4" id="user-modal-title">Add User</h3>
+                    <form id="user-form" class="space-y-4">
+                        <input type="hidden" id="user-id">
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Full Name</label>
+                            <input type="text" id="user-name-input" required
+                                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Email</label>
+                            <input type="email" id="user-email-input" required
+                                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Password</label>
+                            <input type="password" id="user-password-input"
+                                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                            <p class="text-xs text-gray-500 mt-1">Leave blank to keep current password</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Role</label>
+                            <select id="user-role-input"
+                                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                                <option value="customer">Customer</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                        </div>
+                        <div class="flex space-x-3 pt-4">
+                            <button type="submit"
+                                class="flex-1 bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition">
+                                Save
+                            </button>
+                            <button type="button" id="cancel-user-btn"
+                                class="flex-1 bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition">
+                                Cancel
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Menu Item Modal -->
+    <div id="menu-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-lg shadow-xl w-full max-w-md max-h-[90vh] overflow-y-auto">
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-4" id="menu-modal-title">Add Menu Item</h3>
+                    <form id="menu-form" class="space-y-4">
+                        <input type="hidden" id="menu-item-id">
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Item Name</label>
+                            <input type="text" id="menu-name-input" required
+                                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Category</label>
+                            <select id="menu-category-input" required
+                                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                                <option value="rice">Rice</option>
+                                <option value="soup">Soup</option>
+                                <option value="meat">Meat & Grilled</option>
+                                <option value="sides">Sides & Snacks</option>
+                                <option value="beverages">Beverages</option>
+                                <option value="desserts">Desserts</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Price (₦)</label>
+                            <input type="number" id="menu-price-input" step="0.01" required
+                                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Description</label>
+                            <textarea id="menu-description-input" rows="3" required
+                                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-1">Image URL</label>
+                            <input type="text" id="menu-image-input" placeholder="src/assets/image.jpg"
+                                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                        </div>
+                        <div class="flex space-x-3 pt-4">
+                            <button type="submit"
+                                class="flex-1 bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition">
+                                Save
+                            </button>
+                            <button type="button" id="cancel-menu-btn"
+                                class="flex-1 bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition">
+                                Cancel
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gray-900 text-white text-center py-4 mt-12">
+        <p class="text-sm">&copy; 2024 Spice Republic. All rights reserved.</p>
+    </footer>
+
+    <script src="/src/main.js"></script>
+    <script src="/src/admin.js"></script>
+</body>
+
+</html>

@@ -703,8 +703,28 @@ function showOrderConfirmation() {
 
 /**
  * Completes the order process and clears the cart
+ * Saves order to localStorage for order history
  */
 function completeOrder() {
+  // Get current user for order tracking
+  const currentUser = localStorage.getItem('currentUser');
+  const user = currentUser ? JSON.parse(currentUser) : null;
+
+  // Save order to localStorage if user is logged in
+  if (user && cart.length > 0) {
+    const orderData = {
+      userEmail: user.email,
+      customerName: user.name,
+      items: cart.map(item => ({
+        name: item.name,
+        quantity: item.quantity,
+        price: item.price
+      })),
+      total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0)
+    };
+    saveOrder(orderData);
+  }
+
   // Remove modal
   const modal = document.querySelector('.fixed.inset-0.bg-black.bg-opacity-50');
   if (modal) {
@@ -716,7 +736,9 @@ function completeOrder() {
   localStorage.setItem('cart', JSON.stringify(cart));
   updateCartCount();
   updateCartDisplay();
-  cartSidebar.classList.add('translate-x-full');
+  if (cartSidebar) {
+    cartSidebar.classList.add('translate-x-full');
+  }
 }
 
 // 🏷️ Category Filter Functionality
@@ -793,33 +815,92 @@ if (newsletterForm) {
 // Initialize cart count on page load
 updateCartCount();
 
-// 👤 User Session Management
+// 👤 User Session Management & Authentication
+/**
+ * Checks the current user session and updates navigation accordingly
+ * Shows dashboard links for logged-in users and handles role-based navigation
+ */
 function checkUserSession() {
   const currentUser = localStorage.getItem('currentUser');
   const signupLink = document.getElementById('signup-link');
+  const userAccount = document.getElementById('user-account');
   const userMenu = document.getElementById('user-menu');
   const userName = document.getElementById('user-name');
   const logoutBtn = document.getElementById('logout-btn');
 
-  if (currentUser && signupLink && userMenu && userName && logoutBtn) {
+  if (currentUser) {
     const user = JSON.parse(currentUser);
 
-    // Hide sign in link
-    signupLink.style.display = 'none';
+    // Hide sign in link if it exists
+    if (signupLink) {
+      signupLink.style.display = 'none';
+    }
 
     // Show user menu
-    userMenu.classList.remove('hidden');
-    userMenu.classList.add('flex');
-    userName.textContent = `Hi, ${user.name}`;
+    if (userMenu) {
+      userMenu.classList.remove('hidden');
+      userMenu.classList.add('flex');
+    }
+
+    // Update user name display
+    if (userName) {
+      userName.textContent = `Hi, ${user.name}`;
+    }
+
+    // Create dashboard link based on user role
+    if (userAccount && !userAccount.querySelector('.dashboard-link')) {
+      const dashboardLink = document.createElement('a');
+      dashboardLink.href = user.role === 'admin' ? 'admin-dashboard.html' : 'customer-dashboard.html';
+      dashboardLink.textContent = user.role === 'admin' ? 'Admin Dashboard' : 'My Dashboard';
+      dashboardLink.className = 'dashboard-link text-yellow-500 hover:text-yellow-300 transition mr-4';
+      userAccount.insertBefore(dashboardLink, userMenu || signupLink);
+    }
 
     // Logout functionality
-    logoutBtn.addEventListener('click', () => {
-      localStorage.removeItem('currentUser');
-      localStorage.removeItem('rememberUser');
-      alert('You have been logged out.');
-      location.reload();
-    });
+    if (logoutBtn) {
+      // Remove existing event listeners by cloning
+      const newLogoutBtn = logoutBtn.cloneNode(true);
+      logoutBtn.parentNode.replaceChild(newLogoutBtn, logoutBtn);
+
+      newLogoutBtn.addEventListener('click', () => {
+        localStorage.removeItem('currentUser');
+        localStorage.removeItem('rememberUser');
+        localStorage.removeItem('rememberedEmail');
+        window.location.href = 'index.html';
+      });
+    }
+  } else {
+    // User not logged in - ensure sign in link is visible
+    if (signupLink) {
+      signupLink.style.display = 'inline-block';
+    }
+    if (userMenu) {
+      userMenu.classList.add('hidden');
+      userMenu.classList.remove('flex');
+    }
+    // Remove dashboard link if exists
+    const dashboardLink = document.querySelector('.dashboard-link');
+    if (dashboardLink) {
+      dashboardLink.remove();
+    }
   }
+}
+
+/**
+ * Saves an order to localStorage
+ * @param {Object} orderData - The order data to save
+ */
+function saveOrder(orderData) {
+  const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+  const order = {
+    id: `ORD-${Date.now()}`,
+    ...orderData,
+    date: new Date().toISOString(),
+    status: 'pending'
+  };
+  orders.push(order);
+  localStorage.setItem('orders', JSON.stringify(orders));
+  return order;
 }
 
 // Check user session on page load

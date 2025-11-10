@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Dashboard - Spice Republic</title>
+    <link rel="icon" type="image/svg+xml" href="src/assets/favicon.svg">
+    <link rel="stylesheet" href="src/style.css" />
+</head>
+
+<body class="bg-gray-50 text-gray-900">
+    <!-- Navigation -->
+    <nav class="bg-gray-900 text-white px-6 py-4 flex justify-between items-center sticky top-0 z-40">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center space-x-3">
+            <img src="src/assets/logo-simple.svg" alt="Spice Republic Logo" class="h-12 w-auto">
+            <h1 class="text-3xl font-bold tracking-wide text-yellow-500"></h1>
+        </a>
+
+        <!-- Navigation Items -->
+        <div class="flex items-center space-x-4">
+            <a href="index.html" class="text-yellow-500 hover:text-yellow-300 transition">Menu</a>
+            <button id="logout-btn" class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">
+                Logout
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8 max-w-7xl">
+        <!-- Welcome Section -->
+        <div class="bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg p-8 mb-8 text-white">
+            <h1 class="text-3xl font-bold mb-2">Welcome back, <span id="welcome-name"></span>!</h1>
+            <p class="text-yellow-100">Manage your orders, preferences, and account settings</p>
+        </div>
+
+        <!-- Dashboard Stats -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-600 text-sm">Total Orders</p>
+                        <p class="text-3xl font-bold text-gray-800" id="total-orders">0</p>
+                    </div>
+                    <div class="bg-yellow-100 rounded-full p-4">
+                        <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-600 text-sm">Total Spent</p>
+                        <p class="text-3xl font-bold text-gray-800" id="total-spent">₦0</p>
+                    </div>
+                    <div class="bg-green-100 rounded-full p-4">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-gray-600 text-sm">Favorite Items</p>
+                        <p class="text-3xl font-bold text-gray-800" id="favorite-count">0</p>
+                    </div>
+                    <div class="bg-red-100 rounded-full p-4">
+                        <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="bg-white rounded-lg shadow-md mb-6">
+            <div class="border-b border-gray-200">
+                <nav class="flex -mb-px">
+                    <button
+                        class="tab-btn active px-6 py-4 text-sm font-medium text-yellow-600 border-b-2 border-yellow-600"
+                        data-tab="orders">
+                        Order History
+                    </button>
+                    <button
+                        class="tab-btn px-6 py-4 text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 border-b-2 border-transparent"
+                        data-tab="profile">
+                        Profile
+                    </button>
+                    <button
+                        class="tab-btn px-6 py-4 text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 border-b-2 border-transparent"
+                        data-tab="favorites">
+                        Favorites
+                    </button>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Tab Content -->
+        <!-- Orders Tab -->
+        <div id="orders-tab" class="tab-content">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-bold mb-6">Order History</h2>
+                <div id="orders-list" class="space-y-4">
+                    <!-- Orders will be populated here -->
+                    <div class="text-center py-12 text-gray-500">
+                        <svg class="w-16 h-16 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2">
+                            </path>
+                        </svg>
+                        <p class="text-lg">No orders yet</p>
+                        <a href="index.html" class="text-yellow-600 hover:text-yellow-700 mt-2 inline-block">Start
+                            ordering now →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Tab -->
+        <div id="profile-tab" class="tab-content hidden">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-bold mb-6">Profile Settings</h2>
+                <form id="profile-form" class="space-y-6 max-w-2xl">
+                    <div>
+                        <label class="block text-sm font-medium mb-2" for="profile-name">Full Name</label>
+                        <input type="text" id="profile-name"
+                            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2" for="profile-email">Email</label>
+                        <input type="email" id="profile-email"
+                            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                            readonly>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2" for="profile-phone">Phone Number</label>
+                        <input type="tel" id="profile-phone"
+                            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2" for="profile-address">Delivery Address</label>
+                        <textarea id="profile-address" rows="3"
+                            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"></textarea>
+                    </div>
+                    <button type="submit"
+                        class="bg-yellow-500 text-white px-6 py-2 rounded-lg hover:bg-yellow-600 transition">
+                        Save Changes
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Favorites Tab -->
+        <div id="favorites-tab" class="tab-content hidden">
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-bold mb-6">Favorite Items</h2>
+                <div id="favorites-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Favorites will be populated here -->
+                    <div class="col-span-full text-center py-12 text-gray-500">
+                        <svg class="w-16 h-16 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                            </path>
+                        </svg>
+                        <p class="text-lg">No favorites yet</p>
+                        <a href="index.html" class="text-yellow-600 hover:text-yellow-700 mt-2 inline-block">Browse menu
+                            →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white text-center py-4 mt-12">
+        <p class="text-sm">&copy; 2024 Spice Republic. All rights reserved.</p>
+    </footer>
+
+    <script src="/src/main.js"></script>
+    <script>
+        // Customer Dashboard functionality
+        (function () {
+            // Wait for DOM to be fully loaded
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initDashboard);
+            } else {
+                initDashboard();
+            }
+
+            function initDashboard() {
+                // Check authentication
+                const currentUser = localStorage.getItem('currentUser');
+                if (!currentUser) {
+                    console.log('No user session found, redirecting to sign-in');
+                    window.location.href = 'sign-in.html';
+                    return;
+                }
+
+                let user;
+                try {
+                    user = JSON.parse(currentUser);
+                } catch (e) {
+                    console.error('Error parsing user session:', e);
+                    localStorage.removeItem('currentUser');
+                    window.location.href = 'sign-in.html';
+                    return;
+                }
+
+                // Redirect admin users
+                if (user.role === 'admin') {
+                    console.log('Admin user detected, redirecting to admin dashboard');
+                    window.location.href = 'admin-dashboard.html';
+                    return;
+                }
+
+                // Ensure user has customer role
+                if (!user.role) {
+                    user.role = 'customer';
+                }
+
+                // Display user info
+                const welcomeNameEl = document.getElementById('welcome-name');
+                if (welcomeNameEl) {
+                    welcomeNameEl.textContent = user.name || 'Customer';
+                } else {
+                    console.error('Welcome name element not found');
+                }
+
+                // Tab functionality
+                const tabButtons = document.querySelectorAll('.tab-btn');
+                const tabContents = document.querySelectorAll('.tab-content');
+
+                tabButtons.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const targetTab = btn.dataset.tab;
+
+                        // Update button states
+                        tabButtons.forEach(b => {
+                            b.classList.remove('active', 'text-yellow-600', 'border-yellow-600');
+                            b.classList.add('text-gray-500', 'border-transparent');
+                        });
+                        btn.classList.add('active', 'text-yellow-600', 'border-yellow-600');
+                        btn.classList.remove('text-gray-500', 'border-transparent');
+
+                        // Update content visibility
+                        tabContents.forEach(content => {
+                            content.classList.add('hidden');
+                        });
+                        document.getElementById(`${targetTab}-tab`).classList.remove('hidden');
+                    });
+                });
+
+                // Load dashboard data
+                function loadDashboardData() {
+                    // Load orders
+                    const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+                    const userOrders = orders.filter(o => o.userEmail === user.email);
+
+                    document.getElementById('total-orders').textContent = userOrders.length;
+
+                    const totalSpent = userOrders.reduce((sum, order) => sum + parseFloat(order.total), 0);
+                    document.getElementById('total-spent').textContent = `₦${(totalSpent * 1000).toLocaleString()}`;
+
+                    // Display orders
+                    const ordersList = document.getElementById('orders-list');
+                    if (userOrders.length === 0) {
+                        ordersList.innerHTML = `
+                        <div class="text-center py-12 text-gray-500">
+                            <svg class="w-16 h-16 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                            </svg>
+                            <p class="text-lg">No orders yet</p>
+                            <a href="index.html" class="text-yellow-600 hover:text-yellow-700 mt-2 inline-block">Start ordering now →</a>
+                        </div>
+                        `;
+                    } else {
+                        ordersList.innerHTML = userOrders.map(order => `
+                        <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h3 class="font-semibold text-lg">Order #${order.id}</h3>
+                                    <p class="text-sm text-gray-600">${new Date(order.date).toLocaleDateString()}</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-bold text-yellow-600">₦${(parseFloat(order.total) * 1000).toLocaleString()}</p>
+                                    <span class="text-xs px-2 py-1 rounded ${order.status === 'completed' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}">${order.status}</span>
+                                </div>
+                            </div>
+                            <div class="mt-2">
+                                <p class="text-sm text-gray-600">${order.items.length} item(s)</p>
+                            </div>
+                        </div>
+                        `).join('');
+                    }
+
+                    // Load favorites
+                    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+                    const userFavorites = favorites.filter(f => f.userEmail === user.email);
+                    document.getElementById('favorite-count').textContent = userFavorites.length;
+
+                    // Display favorites
+                    const favoritesList = document.getElementById('favorites-list');
+                    if (userFavorites.length === 0) {
+                        favoritesList.innerHTML = `
+                        <div class="col-span-full text-center py-12 text-gray-500">
+                            <svg class="w-16 h-16 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                            <p class="text-lg">No favorites yet</p>
+                            <a href="index.html" class="text-yellow-600 hover:text-yellow-700 mt-2 inline-block">Browse menu →</a>
+                        </div>
+                        `;
+                    } else {
+                        favoritesList.innerHTML = userFavorites.map(fav => `
+                            <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
+                                <h3 class="font-semibold">${fav.itemName}</h3>
+                                <p class="text-sm text-gray-600 mt-1">₦${(fav.price * 1000).toLocaleString()}</p>
+                            </div>
+                        `).join('');
+                    }
+                }
+
+                // Load profile data
+                function loadProfileData() {
+                    const users = JSON.parse(localStorage.getItem('users') || '[]');
+                    const userData = users.find(u => u.email === user.email);
+
+                    if (userData) {
+                        document.getElementById('profile-name').value = userData.name || '';
+                        document.getElementById('profile-email').value = userData.email || '';
+                        document.getElementById('profile-phone').value = userData.phone || '';
+                        document.getElementById('profile-address').value = userData.address || '';
+                    }
+                }
+
+                // Save profile
+                const profileForm = document.getElementById('profile-form');
+                if (profileForm) {
+                    profileForm.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        const users = JSON.parse(localStorage.getItem('users') || '[]');
+                        const userIndex = users.findIndex(u => u.email === user.email);
+
+                        if (userIndex !== -1) {
+                            users[userIndex].name = document.getElementById('profile-name').value;
+                            users[userIndex].phone = document.getElementById('profile-phone').value;
+                            users[userIndex].address = document.getElementById('profile-address').value;
+                            localStorage.setItem('users', JSON.stringify(users));
+
+                            // Update current user session
+                            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                            currentUser.name = users[userIndex].name;
+                            localStorage.setItem('currentUser', JSON.stringify(currentUser));
+
+                            // Update display
+                            const welcomeName = document.getElementById('welcome-name');
+                            if (welcomeName) {
+                                welcomeName.textContent = currentUser.name;
+                            }
+
+                            alert('Profile updated successfully!');
+                        }
+                    });
+                }
+
+                // Logout
+                const logoutBtn = document.getElementById('logout-btn');
+                if (logoutBtn) {
+                    logoutBtn.addEventListener('click', () => {
+                        localStorage.removeItem('currentUser');
+                        window.location.href = 'sign-in.html';
+                    });
+                }
+
+                // Initialize
+                loadDashboardData();
+                loadProfileData();
+            }
+        })();
+    </script>
+</body>
+
+</html>
